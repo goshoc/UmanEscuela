@@ -21,7 +21,23 @@
     <!-- FONTS-->
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
+  <!-- PRUEBA-->
+  <script type="text/javascript">
+    function updateValue(fecha){
+      //if (document.getElementById(fecha).checked)
+      element = document.getElementById(fecha)
+      if (element.checked)
+      {
+       element.value="1";
+      }
+      else
+      {
+        element.value="0";        
+      }
+    }
+    </script>
   </head>
+
   <body>
   <?php
   include_once("../conexion.php"); 
@@ -49,12 +65,15 @@ if($_SESSION['id_tipo_usuario']==1)
                 echo "<tr>";
                 echo "<td>";
                 if($diasCompletos[$y][2]=="1")
-                    {
-                        echo("<label class=\"checkboxDias\"><input type=\"checkbox\" font-size: 200% value=\"".$diasCompletos[$y][0]."\"checked>"."</label></br>");              
+                    { 
+                        echo("<label class=\"checkboxDias\"><input id=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"0\"checked>"."</label></br>");
+          
                     }
                     else
                     {
-                        echo("<label class=\"checkboxDias\"><input type=\"checkbox\" font-size: 200% value=\"".$diasCompletos[$y][0]."\">"."</label></br>");
+
+                        echo("<label class=\"checkboxDias\"><input id=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\"  value=\"0\">"."</label></br>");
+
                     }
                 echo "</td>";
                 echo("<td> <p>".$diasCompletos[$y][1]."</p></td>");

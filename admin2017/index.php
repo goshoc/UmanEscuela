@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +18,71 @@
     <!-- Custom style for navbar -->
     <link href="../css/navbar-fixed-top.css" rel="stylesheet">
     <!-- FONTS-->
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  </head>
- <body>
+	 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
-</body>
+   <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function() {
+    $('#navHabDia').click(function(){
+      $.ajax({        
+      type: "POST",
+      url: "habilitarDias.php",
+      success: function(a) {
+                $('#central').html(a);
+                $("#navHome").removeClass("active");
+                $("#navHabDia").addClass("active");
+
+      }
+       });
+     });
+   });
+   </script>
+</head>
+  <body> 
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Uman Menú</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active" id="navHome"><a href="#">Home</a></li>
+            <li href="#" id="navHabDia"><a href="#">Habilitar días</a></li>
+            <li id="navHabMenu"><a href="#">Habilitar menues</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<?php  
+      include_once("../conexion.php"); 
+      session_start();
+
+      if($_SESSION['id_tipo_usuario']==1)
+      {  
+
+      }
+     
+     else
+      {
+         echo("Usted no tiene permiso para entrar a esta área");
+      }  
+    ?>
+	<div class="container" id="central">  
+  <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
+
+
+   
+
+	</div>
+  </body>
 </html>
- 
-

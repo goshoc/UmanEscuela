@@ -23,17 +23,19 @@
 
   <!-- PRUEBA-->
   <script type="text/javascript">
-    function updateValue(fecha){
+    function updateValue(fecha)
+    {
       //if (document.getElementById(fecha).checked)
       element = document.getElementById(fecha)
-      if (element.checked)
+        if (element.checked)
       {
        element.value="1";
       }
       else
       {
         element.value="0";        
-      }
+      }  
+            
     }
     </script>
   </head>
@@ -55,24 +57,24 @@ if($_SESSION['id_tipo_usuario']==1)
             $diasCompletos[$count] = array($row['fecha'],$row['nombre_dia'],$row['habilitado']);
             $count++;
         } 
-        echo("<form action='actualizarDias.php' method=\"post\">");
+        echo("<form action='actualizarDias.php'>");
         //llenado de tabla. Falta actualizacion de datos
         echo("<table class=\"table table-striped table table-bordered\" name=\""."diasCompletos"."\">");
         echo ("<h2>"."Días"."</h2>");
-        echo("<input type='submit' name='update' value='Habilitar' />");
+        echo("<input type='submit' value='Habilitar' />");
         for($y=0;$y<count($diasCompletos);$y++)
             {
                 echo "<tr>";
                 echo "<td>";
                 if($diasCompletos[$y][2]=="1")
                     { 
-                        echo("<label class=\"checkboxDias\"><input id=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"0\"checked>"."</label></br>");
+                        echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"1\"checked>"."</label></br>");
           
                     }
                     else
                     {
 
-                        echo("<label class=\"checkboxDias\"><input id=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\"  value=\"0\">"."</label></br>");
+                        echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\"  value=\"0\">"."</label></br>");
 
                     }
                 echo "</td>";

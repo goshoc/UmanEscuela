@@ -25,13 +25,13 @@ if($_SESSION['id_tipo_usuario']==1)
                 echo "<td>";
                 if($diasCompletos[$y][2]=="1")
                     { 
-                      echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"1\"checked>"."</label></br>");
+                      echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" id=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"1\"checked>"."</label></br>");
                       //  echo("<input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"1\"checked>"."</br>");
           
                     }
                     else
                     {
-                        echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\"  value=\"0\">"."</label></br>");
+                        echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" id=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\"  value=\"0\">"."</label></br>");
                         //echo("<input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\"  value=\"0\">"."</br>");
 
                     }

@@ -40,9 +40,9 @@
   <script type="text/javascript">
      function updateValue(fecha)
       { 
-        alert(fecha);
+       // alert(fecha);
       //if (document.getElementById(fecha).checked)
-      element = document.getElementByName(fecha);
+      element = document.getElementById(fecha);
 
         if (element.checked)
       {
@@ -53,7 +53,6 @@
         element.value="0";        
       }  
             
-      }
       }
   </script>
 </head>

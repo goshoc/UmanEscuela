@@ -12,11 +12,14 @@ echo("Conto: ". $numero."<br>");
 	
 
 	//MODIFICA BIEN EN LA BD, EL PROBLEMA ES QUE RECIBEN MAS LOS DATOS, REVISAR ESO
+	$sql="UPDATE dia set habilitado='0'";
+	mysqli_query($con, $sql) or die (mysql_error());
+
 	for($i=0;$i<$numero;$i++)
 	{
-	echo("UPDATE dia set  habilitado='$valores[$i]' where fecha='$tags[$i]';<br>");
-	//$sql="UPDATE dia set  habilitado='$valores[$i]' where fecha='$tags[$i]';";
-	//mysqli_query($con, $sql) or die (mysql_error());
+	//echo("UPDATE dia set  habilitado='$valores[$i]' where fecha='$tags[$i]';<br>");
+	$sql="UPDATE dia set  habilitado='$valores[$i]' where fecha='$tags[$i]';";
+	mysqli_query($con, $sql) or die (mysql_error());
 		
 	}
 	mysqli_close($con);

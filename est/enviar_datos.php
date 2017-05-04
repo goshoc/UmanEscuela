@@ -11,11 +11,9 @@ if($_SESSION['id_tipo_usuario']==2)
 	{
 	$$tags[$i]=$valores[$i];
 	}
-		if(count($tags)==10)
-		{				
 			for($i=0;$i<$numero;$i=$i+2)
 			{
-				$sql= ("INSERT INTO `pedido`	(`fecha`, `usuario`, `id_menu`, `comentario`) VALUES (\"".$tags[$i]."\",\"".$_SESSION['usuario']."\",".$valores[$i].",\"".$valores[$i+1]."\"); ");
+				$sql= ("INSERT INTO `pedido`	(`fecha`, `id_usuario`, `id_menu`, `comentario`) VALUES (\"".$tags[$i]."\",\"".$_SESSION['id']."\",".$valores[$i].",\"".$valores[$i+1]."\"); ");
 
 				$result = $con->query($sql);
 				if ( false===$result )
@@ -29,11 +27,6 @@ if($_SESSION['id_tipo_usuario']==2)
   					echo ("Registrado el menú del día: ".$tags[$i].".</br>" );
   				}
 			}	
-		}
-		else
-		{
-			echo"Le falto elegir el menú para al menos un día. Vuelva para atras y complete todo.";
-		}		
 }
 else 
 {

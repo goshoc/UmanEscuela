@@ -22,8 +22,8 @@
 
    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
    <script type="text/javascript">
-    $(document).ready(function() {
-    $('#navHabDia').click(function(){
+      $(document).ready(function() {
+      $('#navHabDia').click(function(){
       $.ajax({        
       type: "POST",
       url: "habilitarDias.php",
@@ -34,9 +34,28 @@
 
       }
        });
-     });
-   });
-   </script>
+      });
+      });
+    </script>
+  <script type="text/javascript">
+     function updateValue(fecha)
+      { 
+        alert(fecha);
+      //if (document.getElementById(fecha).checked)
+      element = document.getElementByName(fecha);
+
+        if (element.checked)
+      {
+       element.value="1";
+      }
+      else
+      {
+        element.value="0";        
+      }  
+            
+      }
+      }
+  </script>
 </head>
   <body> 
   <!-- Fixed navbar -->

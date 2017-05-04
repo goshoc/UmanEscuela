@@ -1,47 +1,4 @@
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-   <!-- 
-    Cuando este lista, cambiar favicon y descomentarlo
-   <link rel="icon" href="../../favicon.ico"> -->
-    <title>Uman</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../css/signin.css" rel="stylesheet">
-    <link href="../css/indexEst.css" rel="stylesheet">
-    <!-- Custom style for navbar -->
-    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
-    <!-- FONTS-->
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-
-  <!-- PRUEBA-->
-  <script type="text/javascript">
-    function updateValue(fecha)
-    {
-      //if (document.getElementById(fecha).checked)
-      element = document.getElementById(fecha)
-        if (element.checked)
-      {
-       element.value="1";
-      }
-      else
-      {
-        element.value="0";        
-      }  
-            
-    }
-    </script>
-  </head>
-
-  <body>
-  <?php
+<?php
   include_once("../conexion.php"); 
 session_start();
 
@@ -68,13 +25,14 @@ if($_SESSION['id_tipo_usuario']==1)
                 echo "<td>";
                 if($diasCompletos[$y][2]=="1")
                     { 
-                        echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"1\"checked>"."</label></br>");
+                      echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"1\"checked>"."</label></br>");
+                      //  echo("<input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\" value=\"1\"checked>"."</br>");
           
                     }
                     else
                     {
-
                         echo("<label class=\"checkboxDias\"><input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\"  value=\"0\">"."</label></br>");
+                        //echo("<input name=\"".$diasCompletos[$y][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasCompletos[$y][0]."');\"  value=\"0\">"."</br>");
 
                     }
                 echo "</td>";
@@ -92,5 +50,3 @@ else
       echo("Usted no tiene permiso para entrar a esta área");
     } 
   ?>
-  </body>
-  </html>

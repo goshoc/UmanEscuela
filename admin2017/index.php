@@ -23,17 +23,78 @@
    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
    <script type="text/javascript">
       $(document).ready(function() {
-      $('#navHabDia').click(function(){
+
+      	
+      	function toogleActive(id)
+      	{
+      		$("#navHome").removeClass("active");
+      		$("#navHabDia").removeClass("active");
+      		$("#navHabMenu").removeClass("active");
+      		$("#navABMDias").removeClass("active");
+      		$("#navABMMenu").removeClass("active");
+      		$("#navABMUser").removeClass("active");
+			$("#"+id).addClass("active");
+      	}
+      $('#navHabDia').click(function()
+      {
+      	$.ajax({        
+      	type: "POST",
+      	url: "habilitarDias.php",
+      	success: function(a) {
+                $('#central').html(a);
+                toogleActive("navHabDia");
+      						}
+       		});
+      });
+
+      $('#navHabMenu').click(function()
+      {
       $.ajax({        
       type: "POST",
-      url: "habilitarDias.php",
-      success: function(a) {
+      url: "habilitarMenu.php",
+      success: function(a) 
+      						{
                 $('#central').html(a);
-                $("#navHome").removeClass("active");
-                $("#navHabDia").addClass("active");
+                toogleActive("navHabMenu");
+      						}
+       		});
+      });
+	  $('#navABMDias').click(function()
+      {
+      	$.ajax({        
+      	type: "POST",
+      	url: "ABMDias.php",
+      	success: function(a) 
+      	{
+      	    $('#central').html(a);
+            toogleActive("navABMDias");	
+      	}
+      });      				
+      });
 
-      }
-       });
+      $('#navABMMenu').click(function()
+      {
+      	$.ajax({        
+      	type: "POST",
+      	url: "ABMMenu.php",
+      	success: function(a) 
+      	{
+      	    $('#central').html(a);
+            toogleActive("navABMMenu");	
+      	}
+      });      				
+      });
+      $('#navABMUser').click(function()
+      {
+      	$.ajax({        
+      	type: "POST",
+      	url: "ABMUser.php",
+      	success: function(a) 
+      	{
+      	    $('#central').html(a);
+            toogleActive("navABMUser");	
+      	}
+      });      				
       });
       });
     </script>
@@ -74,6 +135,9 @@
             <li class="active" id="navHome"><a href="#">Home</a></li>
             <li href="#" id="navHabDia"><a href="#">Habilitar días</a></li>
             <li id="navHabMenu"><a href="#">Habilitar menues</a></li>
+            <li id="navABMDias"><a href="#">ABM días</a></li>
+            <li id="navABMMenu"><a href="#">ABM menues</a></li>
+            <li id="navABMUser"><a href="#">ABM usuarios</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">            
           </ul>

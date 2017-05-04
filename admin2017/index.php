@@ -3,14 +3,7 @@
       session_start();
       if($_SESSION['id_tipo_usuario']==1)
       {  
-
-      }
-     else
-      {
-         echo("Usted no tiene permiso para entrar a esta área");
-      }  
-    ?>
-
+  ?>
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -33,11 +26,10 @@
     <!-- FONTS-->
 	 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
-   <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
-   <script type="text/javascript">
-      $(document).ready(function() {
-
-      	
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() 
+      {
       	function toogleActive(id)
       	{
       		$("#navHome").removeClass("active");
@@ -48,8 +40,8 @@
       		$("#navABMUser").removeClass("active");
 			    $("#"+id).addClass("active");
       	}
-      $('#navHabDia').click(function()
-      {
+       $('#navHabDia').click(function()
+        {
       	$.ajax({        
       	type: "POST",
       	url: "habilitarDias.php",
@@ -58,22 +50,22 @@
                 toogleActive("navHabDia");
       						}
        		});
-      });
+        });
 
-      $('#navHabMenu').click(function()
-      {
-      $.ajax({        
-      type: "POST",
-      url: "habilitarMenu.php",
-      success: function(a) 
+        $('#navHabMenu').click(function()
+        {
+        $.ajax({        
+        type: "POST",
+        url: "habilitarMenu.php",
+        success: function(a) 
       						{
                 $('#central').html(a);
                 toogleActive("navHabMenu");
       						}
        		});
-      });
-	  $('#navABMDias').click(function()
-      {
+        });
+	      $('#navABMDias').click(function()
+       {
       	$.ajax({        
       	type: "POST",
       	url: "ABMDias.php",
@@ -82,11 +74,10 @@
       	    $('#central').html(a);
             toogleActive("navABMDias");	
       	}
-      });      				
-      });
-
-      $('#navABMMenu').click(function()
-      {
+        });      				
+       });
+        $('#navABMMenu').click(function()
+        {
       	$.ajax({        
       	type: "POST",
       	url: "ABMMenu.php",
@@ -95,10 +86,10 @@
       	    $('#central').html(a);
             toogleActive("navABMMenu");	
       	}
-      });      				
-      });
-      $('#navABMUser').click(function()
-      {
+        });      				
+        });
+        $('#navABMUser').click(function()
+        {
       	$.ajax({        
       	type: "POST",
       	url: "ABMUser.php",
@@ -107,31 +98,28 @@
       	    $('#central').html(a);
             toogleActive("navABMUser");	
       	}
-      });      				
-      });
+        });      				
+        });
       });
     </script>
-  <script type="text/javascript">
+    <script type="text/javascript">
      function updateValue(fecha)
       { 
-       // alert(fecha);
-      //if (document.getElementById(fecha).checked)
-      element = document.getElementById(fecha);
+        element = document.getElementById(fecha);
 
         if (element.checked)
-      {
-       element.value="1";
+          {
+            element.value="1";
+          }
+        else
+          {
+            element.value="0";        
+          }            
       }
-      else
-      {
-        element.value="0";        
-      }  
-            
-      }
-  </script>
-</head>
+    </script>
+  </head>
   <body> 
-  <!-- Fixed navbar -->
+    <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -159,8 +147,15 @@
     </nav>
 
 	
-	<div class="container" id="central">  
-  <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
-	</div>
+	 <div class="container" id="central">  
+    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
+	 </div>
   </body>
 </html>
+
+<?php }
+     else
+      {
+         echo("Usted no tiene permiso para entrar a esta área");
+      }  
+    ?>

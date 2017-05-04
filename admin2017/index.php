@@ -1,3 +1,16 @@
+<?php  
+      include_once("../conexion.php"); 
+      session_start();
+      if($_SESSION['id_tipo_usuario']==1)
+      {  
+
+      }
+     else
+      {
+         echo("Usted no tiene permiso para entrar a esta área");
+      }  
+    ?>
+    
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -145,26 +158,9 @@
       </div>
     </nav>
 
-	<?php  
-      include_once("../conexion.php"); 
-      session_start();
-
-      if($_SESSION['id_tipo_usuario']==1)
-      {  
-
-      }
-     
-     else
-      {
-         echo("Usted no tiene permiso para entrar a esta área");
-      }  
-    ?>
+	
 	<div class="container" id="central">  
   <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
-
-
-   
-
 	</div>
   </body>
 </html>

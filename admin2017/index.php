@@ -10,7 +10,7 @@
          echo("Usted no tiene permiso para entrar a esta área");
       }  
     ?>
-    
+
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -46,7 +46,7 @@
       		$("#navABMDias").removeClass("active");
       		$("#navABMMenu").removeClass("active");
       		$("#navABMUser").removeClass("active");
-			$("#"+id).addClass("active");
+			    $("#"+id).addClass("active");
       	}
       $('#navHabDia').click(function()
       {

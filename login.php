@@ -14,6 +14,7 @@ include_once "conexion.php";
 		$_SESSION['nombre'] = $fila['nombre'];
 		$_SESSION['id_tipo_usuario'] = $fila['id_tipo_usuario'];
 		$_SESSION['apellido'] = $fila['apellido'];
+		$_SESSION['id'] = $fila['id'];
 	
 		if($fila['id_tipo_usuario'] == 1)
 		{

@@ -55,7 +55,7 @@ session_start();
 if($_SESSION['id_tipo_usuario']==2)
 { 
   //CARGAR DIAS DISPONIBLES Y MENUES PARA CADA DIA
-  $sql = "SELECT * FROM dia WHERE habilitado=1";
+  $sql = "SELECT * from dia where habilitado='1' and fecha not in(select fecha from pedido where id_usuario=".$_SESSION['id'].")";
   $rec = mysqli_query($con, $sql);
   $diasHabilitados = array('fecha','nombre_dia');
   $count = 0;

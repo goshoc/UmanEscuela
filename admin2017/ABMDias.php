@@ -5,7 +5,7 @@
     </td>
   </tr>
   <tr> 
-    <td>1- <a href="FormAltaDias.html">Alta</a></td>
+    <td>1- <li id="BtnAltaDias"><a href="#">Alta</a></li></td>
   </tr>
   <tr>  
     <td>2- <a href="FormModiDias.html">Modificación</a></td>

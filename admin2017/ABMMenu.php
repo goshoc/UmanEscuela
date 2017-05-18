@@ -31,6 +31,17 @@
                   }
           });
         });
+
+        $('#BtnListMenu').click(function()
+        {
+        $.ajax({        
+        type: "POST",
+        url: "FormConsultaMenu.html",
+        success: function(a) {
+                $('#central').html(a); 
+                  }
+          });
+        });
       });
 </script>
 
@@ -44,13 +55,13 @@
     <td> <li id="BtnAltaMenu"><a href="#">Alta</a></li></td>
   </tr>
   <tr>  
-    <td> <li id="BtnModiMenu"><a href="FormModiMenu.html">Modificación</a></li></td>
+    <td> <li id="BtnModiMenu"><a href="#">Modificación</a></li></td>
   </tr>
   <tr> 
-    <td><li id="BtnBajaMenu"><a href="FormBajaMenu.html">Baja</a></li></td>
+    <td><li id="BtnBajaMenu"><a href="#">Baja</a></li></td>
   </tr>
   <tr>
-    <td><li id="BtnListMenu"><a href="FormListadoMenu.php">Listado Completo</a></li></td>
+    <td><li id="BtnListMenu"><a href="#">Listado Completo</a></li></td>
   </tr>
   <tr>
   </tr>

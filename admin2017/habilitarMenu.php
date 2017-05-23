@@ -52,8 +52,9 @@ if($_SESSION['id_tipo_usuario']==1)
 		    	echo($menuDiaDisp[$y][0]." ".$menuDiaDisp[$y][1]."</br>");
 		    }
 		    */
-        echo"<div class='row'>";
-        
+        echo("<form action='actualizarMenuesDias.php'>");
+        echo("<input type='submit' value='Actualizar' />");
+        echo"<div class='row'>";     
         for($y=0;$y<count($diasHabilitados);$y++)
         {   
         	echo("<table class=\"table table-striped table table-bordered\" name=\"".$diasHabilitados[$y][0]."\">");
@@ -90,8 +91,9 @@ if($_SESSION['id_tipo_usuario']==1)
                 echo("<td> <p>".$menuDisponibles[$x][1]."</p></td>");
                 echo "</tr>";
   			}
+  			echo " </table>";
         }
-        
+        echo("</form>");
         echo"</div>";
 
   }                      

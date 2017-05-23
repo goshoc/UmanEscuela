@@ -79,12 +79,12 @@ if($_SESSION['id_tipo_usuario']==1)
                 	
                 if($estaDisp=="1")
                     { 
-                      echo("<label class=\"checkboxDias\"><input name=\"".$menuDisponibles[$x][0]."\" id=\"".$menuDisponibles[$x][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$menuDisponibles[$x][0]."');\" value=\"1\"checked>"."</label></br>");
+                      echo("<label class=\"checkboxDias\"><input name=\"".$diasHabilitados[$y][0].$menuDisponibles[$x][0]."\" id=\"".$diasHabilitados[$y][0].$menuDisponibles[$x][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasHabilitados[$y][0].$menuDisponibles[$x][0]."');\" value=\"1\"checked>"."</label></br>");
           
                     }
                     else
                     {
-                        echo("<label class=\"checkboxDias\"><input name=\"".$menuDisponibles[$x][0]."\" id=\"".$menuDisponibles[$x][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$menuDisponibles[$x][0]."');\"  value=\"0\">"."</label></br>");
+                        echo("<label class=\"checkboxDias\"><input name=\"".$diasHabilitados[$y][0].$menuDisponibles[$x][0]."\" id=\"".$diasHabilitados[$y][0].$menuDisponibles[$x][0]."\" type=\"checkbox\" font-size: 200% onChange=\"javascript:updateValue('".$diasHabilitados[$y][0].$menuDisponibles[$x][0]."');\"  value=\"0\">"."</label></br>");
 
                     }
                 echo "</td>";

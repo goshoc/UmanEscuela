@@ -5,6 +5,7 @@
       {  
   ?>
 <html>
+
 <head>
 <title>Alta Usuario</title>
 <meta charset="utf-8">
@@ -25,7 +26,7 @@
     <!-- Custom style for navbar -->
     <link href="../css/navbar-fixed-top.css" rel="stylesheet">
     <!-- FONTS-->
-   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 
@@ -33,7 +34,6 @@
 </head>
 
 <body>
-
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -48,60 +48,34 @@
     </nav> 
 
 <div class="container"> 
+
 <?php 
- //Captura datos desde el Form anterior
+//Captura datos desde el Form anterior
 
 $vUser = $_POST['user'];
-$vPassword = (string) rand(11111111,999999999);//"asdfgghj";
-$vNombre = $_POST['nombre'];
-$vApellido = $_POST['apellido'];
-$vEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-//$vEmail = filter_var('$vMail', FILTER_SANITIZE_EMAIL);
-$Title = "UMAN";
-$EmailBody = "Acaba de ser registrado como usuario. Usuario:'".$vUser."'\nPassword: '".$vPassword."' ";
-//Arma la instrucción SQL y luego la ejecuta
-//Si hay que validar si algo existe o no, va aca.
 
-$vSqlverif = "SELECT * FROM personas WHERE usuario='$vUser' or email='$vEmail' ";
+
+$vSqlverif = "SELECT * FROM personas WHERE usuario='$vUser' ";
 $vResultado = mysqli_query($con, $vSqlverif) or die (mysql_error($con));
 $vCantUsers = $vResultado->num_rows;
-//$vCantUsuarios = mysql_result($vResultado, 0);
 
-if (filter_var($vEmail, FILTER_VALIDATE_EMAIL) === false){
-       echo ("'".$vEmail."' is not a valid email address<br>");
-       echo ("<A href='index.php'>Volver a Uman Menu</A>");
-}
-else {
-
-  if ($vCantUsers != 0){
-       echo ("El Usuario ya existe<br>");
-       //echo ("<A href='index.php'>Volver a Uman Menu</A>");
-  }
-  else {
-
-//echo("INSERT INTO `personas`(`descripcion`) VALUES (\"".$vDescripcion."\")");
- //WHERE `usuario` = '" . $usuario . "' and `password` = '" . $password . "'";
-//echo("INSERT INTO `personas`(`usuario`,`password`,`id_tipo_usuario`,`nombre`,`apellido`,`email`) 
-//         values (\"".$vUser."\", \"".$vPassword."\", 2, \"".$vNombre."\", \"".$vApellido."\", \"".$vEmail."\")");
-
-$vSql = "INSERT INTO `personas`(`usuario`,`password`,`id_tipo_usuario`,`nombre`,`apellido`,`email`) 
-          values (\"".$vUser."\", \"".$vPassword."\", 2, \"".$vNombre."\", \"".$vApellido."\", \"".$vEmail."\")";
-       mysqli_query($con, $vSql) or die (mysql_error());
-       echo("El usuario se agrego correctamente.<br>");
-
-       $bool = mail('$vEmail','$Title','$EmailBody');
-      if($bool){ echo "Mensaje enviado";}  else{echo "Mensaje no enviado";}
-       //echo ("<a href='index.php'>VOLVER AL MENU</a>");
-       }}
- // Liberar conjunto de resultados
- // mysql_free_result($vResultado);
-
-/*} */
+if ($vCantUsers != 0){
+$vSql = "DELETE from personas where usuario='$vUser'";
+$vResultado = mysqli_query($con, $vSql) or die (mysqli_error($con));
 
 // Cerrar la conexion
-mysqli_close($con); 
+$con->close();
+
+
+echo("Se ha eliminado el usuario con éxito");
+
+}
+else { echo("No existe el usuario ingresado");
+
+}
+
 ?>
-</div>
+
 </body>
 </html> 
 

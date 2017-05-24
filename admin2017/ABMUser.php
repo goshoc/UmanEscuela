@@ -25,7 +25,7 @@
         {
         $.ajax({        
         type: "POST",
-        url: "FormBajaUser.html",
+        url: "FormDeleteUser.html",
         success: function(a) {
                 $('#central').html(a);
                   }
@@ -36,7 +36,7 @@
         {
         $.ajax({        
         type: "POST",
-        url: "FormConsultaUser.html",
+        url: "FormConsultaUser.php",
         success: function(a) {
                 $('#central').html(a); 
                   }

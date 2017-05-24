@@ -36,7 +36,7 @@
 				</tr>
 			</table>
 			<p>&nbsp;</p>
-			<p align="center"><a href="FormAltaMenu.html">Volver al men&uacute; del ABM</a></p>
+			<p align="center"><a href="index.php">Volver al men&uacute; del ABM</a></p>
 		</div>
 	</body>
 </html>

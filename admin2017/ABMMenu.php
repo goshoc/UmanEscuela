@@ -36,7 +36,7 @@
         {
         $.ajax({        
         type: "POST",
-        url: "FormConsultaMenu.html",
+        url: "ConsultaMenu.php",
         success: function(a) {
                 $('#central').html(a); 
                   }

@@ -163,11 +163,11 @@ if ($total_paginas > 1){?>      Ir a Página:
 for ($i=1;$i<=$total_paginas;$i++){
   if ($pagina == $i) 
 //si muestro el índice de la página actual, no coloco enlace
-    echo "<strong>". $pagina . "</strong>";// else if ($pagina == $i)  echo  " - "."<a href='FormConsultaUser.php?pagina=" . $i ."'>" . $i . "</a>";
-  else if ($total_paginas == $i) echo  " - "."<a href='FormConsultaUser.php?pagina=" . $i ."'>" . $i . "</a>" ;
+    echo "<strong>". $pagina . "</strong>";// else if ($pagina == $i)  echo  " - "."<a href='ConsultaUser.php?pagina=" . $i ."'>" . $i . "</a>";
+  else if ($total_paginas == $i) echo  " - "."<a href='ConsultaUser.php?pagina=" . $i ."'>" . $i . "</a>" ;
 //si la página no es la actual, coloco el enlace para ir a esa página
 
-    else echo  " - "."<a href='FormConsultaUser.php?pagina=" . $i ."'>" . $i . "</a>". " - " ;}}?>
+    else echo  " - "."<a href='ConsultaUser.php?pagina=" . $i ."'>" . $i . "</a>". " - " ;}}?>
 
   </ul>
 		

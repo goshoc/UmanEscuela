@@ -8,6 +8,7 @@ $(document).ready(function()
       		$("#navABMDias").removeClass("active");
       		$("#navABMMenu").removeClass("active");
       		$("#navABMUser").removeClass("active");
+          $("#navLogOut").removeClass("active");
 			    $("#"+id).addClass("active");
       	}
        $('#navHabDia').click(function()
@@ -34,6 +35,7 @@ $(document).ready(function()
       						}
        		});
         });
+
 	      $('#navABMDias').click(function()
        {
       	$.ajax({        
@@ -46,6 +48,7 @@ $(document).ready(function()
       	}
         });      				
        });
+
         $('#navABMMenu').click(function()
         {
       	$.ajax({        
@@ -58,6 +61,7 @@ $(document).ready(function()
       	}
         });      				
         });
+        
         $('#navABMUser').click(function()
         {
       	$.ajax({        
@@ -68,6 +72,20 @@ $(document).ready(function()
       	    $('#central').html(a);
             toogleActive("navABMUser");	
       	}
-        });      				
-        });      
+        });     				
+        });     
+      
+        $('#navLogOut').click(function()
+        {
+        $.ajax({        
+        type: "POST",
+        url: "LogOut.php",
+        success: function(a) 
+        {
+            $('#central').html(a);
+            toogleActive("navLogOut"); 
+        }
+        });             
+        });
+
       });

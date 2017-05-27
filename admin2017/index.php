@@ -67,7 +67,8 @@
             <li id="navABMMenu"><a href="#">ABM menues</a></li>
             <li id="navABMUser"><a href="#">ABM usuarios</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">            
+          <ul class="nav navbar-nav navbar-right">    
+          <li id="navLogOut"><a href="#">Log out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

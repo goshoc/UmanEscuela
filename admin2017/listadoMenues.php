@@ -60,13 +60,13 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active" id="navHome"><a href="#">Home</a></li>
-            <li href="#" id="navHabDia"><a href="#">Habilitar días</a></li>
+            <li id="navHome"><a href="#">Home</a></li>
+            <li id="navHabDia"><a href="#">Habilitar días</a></li>
             <li id="navHabMenu"><a href="#">Habilitar menues</a></li>
             <li id="navABMDias"><a href="#">ABM días</a></li>
             <li id="navABMMenu"><a href="#">ABM menues</a></li>
             <li id="navABMUser"><a href="#">ABM usuarios</a></li>
-            <li id="navListMenu"><a href="listadoMenues.php">Listado de menues</a></li>
+            <li class="active"  id="navListMenu"><a href="listadoMenues.php">Listado de menues</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">            
           </ul>
@@ -76,6 +76,13 @@
 
 	
 	 <div class="container" id="central">  
+	 	
+	 <form action="../admin2017/listadoMenues2.php">
+	 <p>Elegir fecha para generar listado: </p>
+	 <p>yyyy-mm-dd</p>
+	  <input type="text" name="dateSelected"><br>
+	  <input type="submit" value="Submit">
+</form>
 	 </div>
   </body>
 </html>

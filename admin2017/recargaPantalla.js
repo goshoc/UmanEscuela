@@ -11,6 +11,18 @@ $(document).ready(function()
       $("#navListMenu").removeClass("active");
 	    $("#"+id).addClass("active");
   	}
+    $('#navHome').click(function()
+    {
+      $.ajax({        
+      type: "POST",
+      url: "index.php",
+      success: function(a) {
+              $('#central').html(a);
+              toogleActive("navHome");
+                }
+        });
+    });
+
    $('#navHabDia').click(function()
     {
     	$.ajax({        

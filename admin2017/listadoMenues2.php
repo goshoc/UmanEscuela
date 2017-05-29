@@ -29,55 +29,70 @@
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 
     <script type="text/javascript" src="recargaPantalla.js"></script>
+    <script type="text/javascript">
+      function ExportToExcel(mytblId){
+      var htmltable= document.getElementById('tablaPrincipal');
+      var html = htmltable.outerHTML;
+      window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+      }
+    </script>
    
   </head>
   	<body>
   	<div class="container">
   	<?php
-
   		//CARGO LOS PEDIDOS DE LA FECHA PASADA POR POST
 	  		$fecha = $_GET['dateSelected'];
 	  		$sql = "call getPedidosDia('$fecha')";
 		    $rec = mysqli_query($con, $sql);
-		    $pedidos = array('fecha','id_usuario','id_menu','usuario','apellido','nombre','descripcion','comentario','fecha_ingreso');
+		    //$pedidos = array('fecha','id_usuario','id_menu','usuario','apellido','nombre','descripcion','comentario','fecha_ingreso');
 		    $count = 0;
 		    while ($row =  mysqli_fetch_array($rec))
 		    {
 		        $pedidos[$count] = array($row['fecha'],$row['id_usuario'],$row['id_menu'],$row['usuario'],$row['apellido'],$row['nombre'],$row['descripcion'],$row['comentario'],$row['fecha_ingreso']);	
-
-		        $count++;
+            $count++;
 		    }
-		    echo (count($pedidos));	   
-     		echo("<table class=\"table table-striped table table-bordered\" name=\"".$fecha."\">");
-		    echo ("<h2>".$fecha."</h2>");
-		    echo "<tr>";
-                echo "<th>apellido</th><th>Nombre</th><th>Menú</th><th>Comentario</th><th>fecha de carga</th>";               
-				echo "<td>";
-		    for($i=0;$i<count($pedidos);$i++)
-		    {
-		    	echo "<tr>";
-                echo "<td>";
-                echo "<p>".$pedidos[$i][4]."</p>";
-				echo "</td>";
-				echo "<td>";
-                echo "<p>".$pedidos[$i][5]."</p>";
-				echo "</td>";
-				echo "<td>";
-                echo "<p>".$pedidos[$i][6]."</p>";
-				echo "</td>";
-				echo "<td>";
-                echo "<p>".$pedidos[$i][7]."</p>";
-				echo "</td>";
-				echo "<td>";
-                echo "<p>".$pedidos[$i][8]."</p>";
-				echo "</td>";
-                echo "</tr>";
-                
-		    }
-		    echo "</table>";
+      var_dump($pedidos);
+   		echo("<table class=\"table table-striped table table-bordered\" name=\"".$fecha."\" id=\"tablaPrincipal\">");
+	    echo ("<h2>".$fecha."</h2>");
+	    echo "<tr>";
+              echo "<th>apellido</th><th>Nombre</th><th>Menú</th><th>Comentario</th><th>fecha de carga</th>";               
+	    for($i=0;$i<count($pedidos);$i++)
+	    {
+	    	echo "<tr>";
+              echo "<td>";
+              echo "<p>".$pedidos[$i][4]."</p>";
+			echo "</td>";
+			echo "<td>";
+              echo "<p>".$pedidos[$i][5]."</p>";
+			echo "</td>";
+			echo "<td>";
+              echo "<p>".$pedidos[$i][6]."</p>";
+			echo "</td>";
+			echo "<td>";
+              echo "<p>".$pedidos[$i][7]."</p>";
+			echo "</td>";
+			echo "<td>";
+              echo "<p>".$pedidos[$i][8]."</p>";
+			echo "</td>";
+              echo "</tr>";
+              
+	    }
+	    echo "</table>";
 
+      echo "<h2>Cantidades pedidas</h2>";
+      $cantPedidas = [];
+      foreach($pedidos as $pedido)
+      {       
+        $cantPedidas[$pedido[2]][0]++;
+        $cantPedidas[$pedido[2]][1]=$pedido[6];
+      }
 
-	?>
+      foreach ($cantPedidas as $row) {
+        echo "<p>$row[1] : $row[0]</p></br>";
+              }
+      
+  ?>
 	</div>
   	</body>
   </html>

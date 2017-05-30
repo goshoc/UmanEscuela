@@ -66,7 +66,7 @@
             <li id="navABMDias"><a href="#">ABM días</a></li>
             <li id="navABMMenu"><a href="#">ABM menues</a></li>
             <li id="navABMUser"><a href="#">ABM usuarios</a></li>
-            <li id="navListMenu"><a href="listadoMenues.php">Listado de menues</a></li>
+            <li id="navListMenu"><a href="#">Listado de menues</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">    
           <li id="navLogOut"><a href="LogOut.php">Log out</a></li>

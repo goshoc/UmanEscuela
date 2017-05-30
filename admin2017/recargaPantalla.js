@@ -85,7 +85,6 @@ $(document).ready(function()
     }); 
     $('#navListMenu').click(function()
     {
-      alert("Entro")
       $.ajax({        
       type: "POST",
       url: "listadoMenues.php",

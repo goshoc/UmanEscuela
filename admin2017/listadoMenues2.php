@@ -52,7 +52,6 @@
 		        $pedidos[$count] = array($row['fecha'],$row['id_usuario'],$row['id_menu'],$row['usuario'],$row['apellido'],$row['nombre'],$row['descripcion'],$row['comentario'],$row['fecha_ingreso']);	
             $count++;
 		    }
-      var_dump($pedidos);
    		echo("<table class=\"table table-striped table table-bordered\" name=\"".$fecha."\" id=\"tablaPrincipal\">");
 	    echo ("<h2>".$fecha."</h2>");
 	    echo "<tr>";
@@ -81,16 +80,23 @@
 	    echo "</table>";
 
       echo "<h2>Cantidades pedidas</h2>";
-      $cantPedidas = [];
+      for($i=0;$i<100;$i++)
+      {
+        $cantPedidas[$i][0]= "";
+        $cantPedidas[$i][1]="";
+      }
+      //$cantPedidas = [][];
       foreach($pedidos as $pedido)
-      {       
-        $cantPedidas[$pedido[2]][0]++;
+      { 
+        $cantPedidas[$pedido[2]][0]++; 
         $cantPedidas[$pedido[2]][1]=$pedido[6];
       }
-
       foreach ($cantPedidas as $row) {
-        echo "<p>$row[1] : $row[0]</p></br>";
-              }
+        if($row[0]!=0)
+        {
+          echo "<p>$row[1] : $row[0]</p></br>";
+        }       
+     }
       
   ?>
 	</div>

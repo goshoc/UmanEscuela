@@ -1,8 +1,8 @@
-<?php  
-      include_once("../conexion.php"); 
+<?php
+      include_once("../conexion.php");
       session_start();
       if($_SESSION['id_tipo_usuario']==1)
-      {  
+      {
   ?>
 <html lang="es">
   <head>
@@ -12,7 +12,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   <!-- 
+   <!--
     Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
@@ -27,11 +27,11 @@
 	 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
-
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="recargaPantalla.js"></script>
     <script type="text/javascript">
      function updateValue(fecha)
-      { 
+      {
         element = document.getElementById(fecha);
 
         if (element.checked)
@@ -40,12 +40,12 @@
           }
         else
           {
-            element.value="0";        
-          }            
+            element.value="0";
+          }
       }
     </script>
   </head>
-  <body> 
+  <body>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -68,15 +68,15 @@
             <li id="navABMUser"><a href="#">ABM usuarios</a></li>
             <li id="navListMenu"><a href="#">Listado de menues</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">    
+          <ul class="nav navbar-nav navbar-right">
           <li id="navLogOut"><a href="LogOut.php">Log out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-	
-	 <div class="container" id="central">  
+
+	 <div class="container" id="central">
 	 </div>
   </body>
 </html>
@@ -85,5 +85,5 @@
      else
       {
          echo("Usted no tiene permiso para entrar a esta área");
-      }  
+      }
     ?>

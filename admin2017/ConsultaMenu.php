@@ -1,8 +1,8 @@
-<?php  
-      include_once("../conexion.php"); 
+<?php
+      include_once("../conexion.php");
       session_start();
       if($_SESSION['id_tipo_usuario']==1)
-      {  
+      {
   ?>
 
 <html>
@@ -14,7 +14,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   <!-- 
+   <!--
     Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
@@ -33,7 +33,7 @@
     <script type="text/javascript" src="recargaPantalla.js"></script>
     <script type="text/javascript">
      function updateValue(fecha)
-      { 
+      {
         element = document.getElementById(fecha);
 
         if (element.checked)
@@ -42,8 +42,8 @@
           }
         else
           {
-            element.value="0";        
-          }            
+            element.value="0";
+          }
       }
     </script>
 		<title> Listados completo </title>
@@ -62,16 +62,16 @@
           </button>
           <a class="navbar-brand" href="index.php">Uman Menú</a>
         </div>
-    </nav> 
+    </nav>
 
 
 
-<div class="container"> 
+<div class="container">
 <?php
 
 //include('Conectar.php');
 
-$Cant_por_Pag = 1;
+$Cant_por_Pag = 20;
 
 //DEBO DEFINIR LA VARIABLE $_GET POR SI NO TIENE VALOR AL PRINCIPIO CON NULL
 $pagina = isset ( $_GET['pagina']) ? $_GET['pagina'] : null ;
@@ -100,24 +100,24 @@ $vResultado = mysqli_query($con, $vSql) or die (mysqli_error($con));
         </tr>
 
 <?php
-if ($row = mysqli_fetch_array($vResultado)){      
- 
+if ($row = mysqli_fetch_array($vResultado)){
+
 do { ?>
-   
+
      <tr class="info">
      <td>  <?php echo ($row["descripcion"]); ?>   </td>
      </tr>
-   
+
    <?php
-   ;} 
-while ($row = mysqli_fetch_array($vResultado)) ; 
+   ;}
+while ($row = mysqli_fetch_array($vResultado)) ;
     ?> </table>
 
 <?php
-} else { 
-echo "¡ No se ha encontrado ningún registro !"; 
-} 
-?> 
+} else {
+echo "¡ No se ha encontrado ningún registro !";
+}
+?>
 <td colspan="1"></td>
 
 <?php
@@ -127,13 +127,13 @@ while ($fila = $vResultado->fetch_assoc())
 ?>
 
   <div class="col-xs-6 col-md-3">
-   
-      <?php echo "<a class='thumbnail' href='DetallePelicula.php?personas=" . $fila['IDPelicula'] . "'> <img src='" . $fila['Imagen'] . "' alt='poster pelicula'/></a>"; ?>
- 
 
- 
+      <?php echo "<a class='thumbnail' href='DetallePelicula.php?personas=" . $fila['IDPelicula'] . "'> <img src='" . $fila['Imagen'] . "' alt='poster pelicula'/></a>"; ?>
+
+
+
 </div>
- 
+
 <?php
 }*/
 // Liberar conjunto de resultados
@@ -142,16 +142,16 @@ $vResultado->close();
 $con->close();
 ?>
 
- 
+
 <ul>
 
-   
+
 <?php
 if ($total_paginas > 1){?>      Ir a Página:
 
 <?php
 for ($i=1;$i<=$total_paginas;$i++){
-  if ($pagina == $i) 
+  if ($pagina == $i)
 //si muestro el índice de la página actual, no coloco enlace
     echo "<strong>". $pagina . "</strong>";// else if ($pagina == $i)  echo  " - "."<a href='ConsultaMenu.php?pagina=" . $i ."'>" . $i . "</a>";
   else if ($total_paginas == $i) echo  " - "."<a href='ConsultaMenu.php?pagina=" . $i ."'>" . $i . "</a>" ;
@@ -160,7 +160,7 @@ for ($i=1;$i<=$total_paginas;$i++){
     else echo  " - "."<a href='ConsultaMenu.php?pagina=" . $i ."'>" . $i . "</a>". " - " ;}}?>
 
   </ul>
-		
+
 </body>
 </html>
 
@@ -168,5 +168,5 @@ for ($i=1;$i<=$total_paginas;$i++){
      else
       {
          echo("Usted no tiene permiso para entrar a esta área");
-      }  
+      }
     ?>

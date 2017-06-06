@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   <!-- 
+   <!--
     Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
@@ -22,7 +22,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
   </head>
-  <body> 
+  <body>
   <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -39,22 +39,22 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right"> 
-          <li><a href="LogOut.php">Log out</a></li>           
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="LogOut.php">Log out</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-	
+
 	<div class="container">
-	
- <?php  
-include_once("../conexion.php"); 
+
+ <?php
+include_once("../conexion.php");
 session_start();
 
 if($_SESSION['id_tipo_usuario']==2)
-{ 
+{
   //CARGAR DIAS DISPONIBLES Y MENUES PARA CADA DIA
   $sql = "SELECT * from dia where habilitado='1' and fecha not in(select fecha from pedido where id_usuario=".$_SESSION['id'].")";
   $rec = mysqli_query($con, $sql);
@@ -64,13 +64,13 @@ if($_SESSION['id_tipo_usuario']==2)
   {
     $diasHabilitados[$count] = array($row['fecha'],$row['nombre_dia']);
     $count++;
-  } 
+  }
 
 echo("<h1>Entraste al menu del alumno: ". $_SESSION['nombre']. "</h1>");
- 
+
  /* Inicio De Tablas*/
- echo("<form action=\"../est/enviar_datos.php\">");
-  for ($i=0; $i < count($diasHabilitados); $i++) { 
+ echo("<form action=\"../est/enviar_datos.php\" method=\"POST\">");
+  for ($i=0; $i < count($diasHabilitados); $i++) {
      echo("<table class=\"table table-striped table table-bordered\" name=\"".$diasHabilitados[$i][0]."\">");
   echo ("<h2>".$diasHabilitados[$i][1]." ".$diasHabilitados[$i][0]."</h2>");
   echo "<tr>";
@@ -86,30 +86,31 @@ $menues = array('id_menu','descripcion');
   while ($row =  mysqli_fetch_array($rec))
   {
     $menues[$count] = array($row['id_menu'],$row['descripcion']);
-    $count++;   
+    $count++;
   }
 //fin busca menues [$i]
 //REVISAR SI SE ACOMODA BIEN EL TD Y TR O HAY QUE INCLUIRLO EN EL FOR, PARA QUE SE HAGA STRIPED TABLE
     for($y=0;$y<count($menues);$y++)
       {
-        echo ("<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\"/> ".$menues[$y][1]."</br>");  
+        echo ("<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\"/> ".$menues[$y][1]."</br>");
       }
       echo "<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\""."9999"."\"/> "."Nada"."</br>";
    echo "<p>Comentarios</p>";
    echo "<input type="."text"." name="."comentario".$diasHabilitados[$i][0]." value=\"\" /> </br>";
-   
+   echo "<input type=\"hidden\" name=\"fechaTabla".$i."\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".$diasHabilitados[$i][0]."\">";
    echo "</td>";
    echo "</tr>";
   echo " </table>";
 /* Fin de tablas */
 
 }
+echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".count($diasHabilitados)."\">";
 //echo("<input type=\"button\" name=\"enviar\" title=\"enviar\" value=\"Enviar\">");
 echo("<input type=\"submit\"  value=\"Enviar\"/>");
   }
       else{
         echo("Usted no tiene permiso para entrar a esta área");
-      }  
+      }
 ?>
 	</div>
   </body>

@@ -58,7 +58,7 @@ if($_SESSION['id_tipo_usuario']==2)
   //CARGAR DIAS DISPONIBLES Y MENUES PARA CADA DIA
   $sql = "SELECT * from dia where habilitado='1' and fecha not in(select fecha from pedido where id_usuario=".$_SESSION['id'].")";
   $rec = mysqli_query($con, $sql);
-  $diasHabilitados = array('fecha','nombre_dia');
+  //$diasHabilitados = array('fecha','nombre_dia'); //Esto carga el primer elemento como fecha y como nombre_dia, puede ser?
   $count = 0;
   while ($row =  mysqli_fetch_array($rec))
   {
@@ -81,8 +81,9 @@ echo("<h1>Entraste al menu del alumno: ". $_SESSION['nombre']. "</h1>");
 SELECT * FROM `menu` join `dia-menu` on menu.id_menu=`dia-menu`.`id_menu`
 WHERE `dia-menu`.`fecha`='".$diasHabilitados[$i][0]."'";
 $rec = mysqli_query($con, $sql);
-$menues = array('id_menu','descripcion');
-  $count = 0;
+//$menues = array('id_menu','descripcion');
+$menues =[];
+$count = 0;
   while ($row =  mysqli_fetch_array($rec))
   {
     $menues[$count] = array($row['id_menu'],$row['descripcion']);
@@ -90,6 +91,8 @@ $menues = array('id_menu','descripcion');
   }
 //fin busca menues [$i]
 //REVISAR SI SE ACOMODA BIEN EL TD Y TR O HAY QUE INCLUIRLO EN EL FOR, PARA QUE SE HAGA STRIPED TABLE
+if(!empty($menues))
+{
     for($y=0;$y<count($menues);$y++)
       {
         echo ("<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\"/> ".$menues[$y][1]."</br>");
@@ -98,6 +101,7 @@ $menues = array('id_menu','descripcion');
    echo "<p>Comentarios</p>";
    echo "<input type="."text"." name="."comentario".$diasHabilitados[$i][0]." value=\"\" /> </br>";
    echo "<input type=\"hidden\" name=\"fechaTabla".$i."\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".$diasHabilitados[$i][0]."\">";
+}
    echo "</td>";
    echo "</tr>";
   echo " </table>";

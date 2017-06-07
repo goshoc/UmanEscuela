@@ -4,9 +4,10 @@
       if($_SESSION['id_tipo_usuario']==1)
       {
   ?>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
+<html>
+<head>
+<title>Alta Pedido</title>
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -24,30 +25,14 @@
     <!-- Custom style for navbar -->
     <link href="../css/navbar-fixed-top.css" rel="stylesheet">
     <!-- FONTS-->
-	 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="recargaPantalla.js"></script>
-    <script type="text/javascript">
-     function updateValue(fecha)
-      {
-        element = document.getElementById(fecha);
-
-        if (element.checked)
-          {
-            element.value="1";
-          }
-        else
-          {
-            element.value="0";
-          }
-      }
-    </script>
-  </head>
-  <body>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -56,30 +41,36 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Uman Menú</a>
+          <a class="navbar-brand" href="index.php">Uman Menú</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active" id="navHome"><a href="#">Home</a></li>
-            <li id="navHabDia"><a href="#">Habilitar días</a></li>
-            <li id="navHabMenu"><a href="#">Habilitar menues</a></li>
-            <li id="navABMPedidos"><a href="#">ABM pedidos</a></li>
-            <li id="navABMDias"><a href="#">ABM días</a></li>
-            <li id="navABMMenu"><a href="#">ABM menues</a></li>
-            <li id="navABMUser"><a href="#">ABM usuarios</a></li>
-            <li id="navListMenu"><a href="#">Listado de menues</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-          <li id="navLogOut"><a href="LogOut.php">Log out</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
 
+<div class="container">
+<?php
 
-	 <div class="container" id="central">
-	 </div>
-  </body>
+ //Captura datos desde el Form anterior
+$usuario = $_POST['usuario'];
+$menu = $_POST['menu'];
+$fecha = $_POST['fecha'];
+$comentario = $_POST['comentario'];
+
+$vSqlverif = "SELECT * FROM pedido WHERE id_usuario='$usuario' and fecha='$fecha' ";
+$vResultado = mysqli_query($con, $vSqlverif) or die (mysql_error($con));
+$vCantPedidos = $vResultado->num_rows;
+
+  if ($vCantPedidos != 0){
+       echo ("El pedido ya existe<br>");
+  }
+  else {
+$vSql = "INSERT INTO `pedido`(`fecha`, `id_usuario`, `id_menu`, `comentario`) VALUES ('$fecha','$usuario','$menu','$comentario')";
+       mysqli_query($con, $vSql) or die (mysql_error());
+       echo("El pedido se agrego correctamente.<br>");
+// Cerrar la conexion
+mysqli_close($con);
+}
+?>
+</div>
+</body>
 </html>
 
 <?php }

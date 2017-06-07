@@ -1,4 +1,4 @@
-$(document).ready(function() 
+$(document).ready(function()
   {
   	function toogleActive(id)
   	{
@@ -9,11 +9,12 @@ $(document).ready(function()
   		$("#navABMMenu").removeClass("active");
   		$("#navABMUser").removeClass("active");
       $("#navListMenu").removeClass("active");
+      $("#navABMPedidos").removeClass("active");
 	    $("#"+id).addClass("active");
   	}
     $('#navHome').click(function()
     {
-      $.ajax({        
+      $.ajax({
       type: "POST",
       url: "index.php",
       success: function(a) {
@@ -25,7 +26,7 @@ $(document).ready(function()
 
    $('#navHabDia').click(function()
     {
-    	$.ajax({        
+    	$.ajax({
     	type: "POST",
     	url: "habilitarDias.php",
     	success: function(a) {
@@ -37,10 +38,10 @@ $(document).ready(function()
 
     $('#navHabMenu').click(function()
     {
-      $.ajax({        
+      $.ajax({
       type: "POST",
       url: "habilitarMenu.php",
-      success: function(a) 
+      success: function(a)
     						{
               $('#central').html(a);
               toogleActive("navHabMenu");
@@ -49,43 +50,43 @@ $(document).ready(function()
     });
     $('#navABMDias').click(function()
    {
-    	$.ajax({        
+    	$.ajax({
     	type: "POST",
     	url: "ABMDias.php",
-    	success: function(a) 
+    	success: function(a)
     	{
     	    $('#central').html(a);
-          toogleActive("navABMDias");	
+          toogleActive("navABMDias");
     	}
-      });      				
+      });
    });
     $('#navABMMenu').click(function()
     {
-    	$.ajax({        
+    	$.ajax({
     	type: "POST",
     	url: "ABMMenu.php",
-    	success: function(a) 
+    	success: function(a)
     	{
     	    $('#central').html(a);
-          toogleActive("navABMMenu");	
+          toogleActive("navABMMenu");
     	}
-      });      				
+      });
     });
     $('#navABMUser').click(function()
     {
-    	$.ajax({        
+    	$.ajax({
     	type: "POST",
     	url: "ABMUser.php",
-    	success: function(a) 
+    	success: function(a)
     	{
     	    $('#central').html(a);
-          toogleActive("navABMUser");	
+          toogleActive("navABMUser");
     	}
-      });      				
-    }); 
+      });
+    });
     $('#navListMenu').click(function()
     {
-      $.ajax({        
+      $.ajax({
       type: "POST",
       url: "listadoMenues.php",
       success: function(a) {
@@ -93,5 +94,17 @@ $(document).ready(function()
               toogleActive("navListMenu");
                 }
       });
-    });     
+    });
+    $('#navABMPedidos').click(function()
+    {
+      $.ajax({
+      type: "POST",
+      url: "ABMPedidos.php",
+      success: function(a) {
+              $('#central').html(a);
+              toogleActive("navABMPedidos");
+                }
+      });
+    });
+
   });

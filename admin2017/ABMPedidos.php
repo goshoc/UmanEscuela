@@ -25,7 +25,7 @@
         {
         $.ajax({
         type: "POST",
-        url: "FormBajaPedido.html",
+        url: "FormBajaPedido.php",
         success: function(a) {
                 $('#central').html(a);
                   }

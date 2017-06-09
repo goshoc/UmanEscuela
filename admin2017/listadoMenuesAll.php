@@ -29,21 +29,6 @@
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="recargaPantalla.js"></script>
-    <script type="text/javascript">
-     function updateValue(fecha)
-      {
-        element = document.getElementById(fecha);
-
-        if (element.checked)
-          {
-            element.value="1";
-          }
-        else
-          {
-            element.value="0";
-          }
-      }
-    </script>
   </head>
   	<body>
       <!-- Fixed navbar -->
@@ -75,12 +60,29 @@
         </div>
       </nav>
   	<div class="container">
+      <div class="central">
   	<?php
   		//CARGO LOS PEDIDOS DE LA FECHA PASADA POR POST
 	  		$fecha = $_GET['dateSelected'];
-	  		$sql = "call getPedidosDia('$fecha')";
+        $fechaMax = $_GET['dateMaxSelected'];
+        $horaMax = $_GET['timeMaxSelected'];
+        $sql = "";
+        if(empty($fechaMax) && empty($horaMax))
+        {
+          $sql = "call getPedidosDia('$fecha')";
+        }
+        else {
+          $fechaHoraMax = $fechaMax." ".$horaMax;
+          //$sql = "call getPedidosDiaConTope('$fecha','$fechaHoraMax')";
+          $sql  = "select pedido.fecha,pedido.id_usuario,pedido.id_menu,personas.usuario,personas.apellido, personas.nombre,menu.descripcion,pedido.comentario,pedido.fecha_ingreso
+          from pedido
+          inner join personas on personas.id=pedido.id_usuario
+          inner join menu on menu.id_menu=pedido.id_menu
+          where pedido.fecha='".$fecha."'";
+        }
+        var_dump($sql);
 		    $rec = mysqli_query($con, $sql);
-		    //$pedidos = array('fecha','id_usuario','id_menu','usuario','apellido','nombre','descripcion','comentario','fecha_ingreso');
+		    $pedidos = [];
 		    $count = 0;
 		    while ($row =  mysqli_fetch_array($rec))
 		    {
@@ -134,6 +136,7 @@
      }
 
   ?>
+</div>
 	</div>
   	</body>
   </html>

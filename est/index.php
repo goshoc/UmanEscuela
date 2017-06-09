@@ -57,8 +57,8 @@ if($_SESSION['id_tipo_usuario']==2)
 {
   //CARGAR DIAS DISPONIBLES Y MENUES PARA CADA DIA
   $sql = "SELECT * from dia where habilitado='1' and fecha not in(select fecha from pedido where id_usuario=".$_SESSION['id'].")";
-  $rec = mysqli_query($con, $sql);
-  //$diasHabilitados = array('fecha','nombre_dia'); //Esto carga el primer elemento como fecha y como nombre_dia, puede ser?
+  $rec = mysqli_query($con, $sql) or die(mysqli_error($con));
+  $diasHabilitados = []; //Esto carga el primer elemento como fecha y como nombre_dia, puede ser?
   $count = 0;
   while ($row =  mysqli_fetch_array($rec))
   {

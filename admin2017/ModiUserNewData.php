@@ -1,8 +1,8 @@
-<?php  
-      include_once("../conexion.php"); 
+<?php
+      include_once("../conexion.php");
       session_start();
       if($_SESSION['id_tipo_usuario']==1)
-      {  
+      {
   ?>
 <html>
 
@@ -14,7 +14,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   <!-- 
+   <!--
     Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
@@ -45,56 +45,36 @@
           </button>
           <a class="navbar-brand" href="index.php">Uman Menú</a>
         </div>
-    </nav> 
+    </nav>
 
-<div class="container"> 
+<div class="container">
 
-<?php 
+<?php
 //Captura datos desde el Form anterior
-
 $vUser = $_POST['user'];
 $vPassword = $_POST['password']; //(string) rand(11111111,999999999);//"asdfgghj";
 $vNombre = $_POST['nombre'];
 $vApellido = $_POST['apellido'];
-$vEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-//$vEmail = filter_var('$vMail', FILTER_SANITIZE_EMAIL);
-//$Title = "UMAN";
-//$EmailBody = "Acaba de ser registrado como usuario. Usuario:'".$vUser."'\nPassword: '".$vPassword."' ";
-
-$vSqlverif = "SELECT * FROM personas WHERE usuario!='$vUser' and email='$vEmail' ";
+//$vEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+$vEmail = $_POST['email'];
+$vCurso = $_POST['curso'];
+//$vSqlverif = "SELECT * FROM personas WHERE usuario!='$vUser' and email='$vEmail' ";
+/*$vSqlverif = "SELECT * FROM personas WHERE usuario!='$vUser'";
 $vResultado = mysqli_query($con, $vSqlverif) or die (mysql_error($con));
 $vCantUsers = $vResultado->num_rows;
-
-if (filter_var($vEmail, FILTER_VALIDATE_EMAIL) === false){
-       echo ("'".$vEmail."' is not a valid email address<br>");
-       //echo ("<A href='index.php'>Volver a Uman Menu</A>");
-}
-else {
-
-if ($vCantUsers == 0){
+*/
 $vSql = "UPDATE personas set password='$vPassword', nombre='$vNombre', apellido='$vApellido', email='$vEmail' where usuario='$vUser'";
 $vResultado = mysqli_query($con, $vSql) or die (mysqli_error($con));
-
 // Cerrar la conexion
 $con->close();
 
-
 echo("Se han actualizado los datos con exito");
-
-}
-else { echo("Ya existe otro usuario con el mail ingresado");
-
-}}
-
 ?>
-
 </body>
-</html> 
-
+</html>
 <?php }
      else
       {
          echo("Usted no tiene permiso para entrar a esta área");
-      }  
+      }
     ?>
-

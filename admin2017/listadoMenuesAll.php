@@ -80,16 +80,19 @@
 		    $count = 0;
 		    while ($row =  mysqli_fetch_array($rec))
 		    {
-		        $pedidos[$count] = array($row['fecha'],$row['id_usuario'],$row['id_menu'],$row['usuario'],$row['apellido'],$row['nombre'],$row['descripcion'],$row['comentario'],$row['fecha_ingreso']);
+		        $pedidos[$count] = array($row['fecha'],$row['id_usuario'],$row['id_menu'],$row['usuario'],$row['apellido'],$row['nombre'],$row['descripcion'],$row['comentario'],$row['fecha_ingreso'],$row['curso']);
             $count++;
 		    }
    		echo("<table class=\"table table-striped table table-bordered\" name=\"".$fecha."\" id=\"tablaPrincipal\">");
 	    echo ("<h2>".$fecha."</h2>");
 	    echo "<tr>";
-              echo "<th>apellido</th><th>Nombre</th><th>Menú</th><th>Comentario</th><th>fecha de carga</th>";
+              echo "<th>Curso</th><th>Apellido</th><th>Nombre</th><th>Menú</th><th>Comentario</th><th>Fecha de carga</th>";
 	    for($i=0;$i<count($pedidos);$i++)
 	    {
 	    	echo "<tr>";
+              echo "<td>";
+              echo "<p>".$pedidos[$i][9]."</p>";
+      echo "</td>";
               echo "<td>";
               echo "<p>".$pedidos[$i][4]."</p>";
 			echo "</td>";

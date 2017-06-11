@@ -1,8 +1,8 @@
-<?php  
-      include_once("../conexion.php"); 
+<?php
+      include_once("../conexion.php");
       session_start();
       if($_SESSION['id_tipo_usuario']==1)
-      {  
+      {
   ?>
 <html>
 <head>
@@ -13,7 +13,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   <!-- 
+   <!--
     Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
@@ -30,7 +30,7 @@
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 
     <script type="text/javascript" src="recargaPantalla.js"></script>
-     
+
 </head>
 
 <body>
@@ -45,35 +45,20 @@
           </button>
           <a class="navbar-brand" href="index.php">Uman Menú</a>
         </div>
-    </nav> 
+    </nav>
 
-<div class="container"> 
+<div class="container">
 
-<?php 
+<?php
  //Captura datos desde el Form anterior
 
 $vUser = $_POST['user'];
-// $vPassword = (string) rand(11111111,999999999);//"asdfgghj";
-// $vNombre = $_POST['nombre'];
-// $vApellido = $_POST['apellido'];
-// $vEmail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-// $vEmail = filter_var('$vMail', FILTER_SANITIZE_EMAIL);
-// $Title = "UMAN";
-// $EmailBody = "Acaba de ser registrado como usuario. Usuario:'".$vUser."'\nPassword: '".$vPassword."' ";
-//Arma la instrucción SQL y luego la ejecuta
-//Si hay que validar si algo existe o no, va aca.
+
 
 $vSqlverif = "SELECT * FROM personas WHERE usuario='$vUser' ";
 $vResultado = mysqli_query($con, $vSqlverif) or die (mysqli_error($con));
 $vCantUsers = $vResultado->num_rows;
-//$vCantUsuarios = mysql_result($vResultado, 0);
 
-/* if (filter_var($vEmail, FILTER_VALIDATE_EMAIL) === false){
-       echo ("'".$vEmail."' is not a valid email address<br>");
-       echo ("<A href='index.php'>Volver a Uman Menu</A>");
-}
-else {
-*/
   if ($vCantUsers != 0){
 
        $fila = $vResultado->fetch_array(MYSQLI_ASSOC);
@@ -90,7 +75,10 @@ else {
 <label>Password:</label>
 <input type="text" name="password" id="modificarPassword" class="form-control" value="<?php echo($fila['password']); ?>" required>
 <label>Email:</label>
-<input type="email" name="email" id="modificarEmail" class="form-control" value="<?php echo($fila['email']); ?>" required>
+<input type="email" name="email" id="modificarEmail" class="form-control" value="<?php echo($fila['email']); ?>">
+<label>Curso:</label>
+<input type="text" name="curso" id="modificarCurso" class="form-control" value="<?php echo($fila['curso']); ?>">
+
 <br>
 <input type="submit" name="ModificarUsuario" id="modificarUsuarioBtn" value="Actualuzar" class="btn btn-info"/>
 </form>
@@ -100,7 +88,7 @@ else {
 
        // echo ("<A href='index.php'>Volver a Uman Menu</A>");
   }
-  else { 
+  else {
     echo("No se encontró el usuario especificado"); }
 
 
@@ -112,10 +100,10 @@ $con->close();
 
 //echo("INSERT INTO `personas`(`descripcion`) VALUES (\"".$vDescripcion."\")");
  //WHERE `usuario` = '" . $usuario . "' and `password` = '" . $password . "'";
-//echo("INSERT INTO `personas`(`usuario`,`password`,`id_tipo_usuario`,`nombre`,`apellido`,`email`) 
+//echo("INSERT INTO `personas`(`usuario`,`password`,`id_tipo_usuario`,`nombre`,`apellido`,`email`)
 //         values (\"".$vUser."\", \"".$vPassword."\", 2, \"".$vNombre."\", \"".$vApellido."\", \"".$vEmail."\")");
 
-/* $vSql = "INSERT INTO `personas`(`usuario`,`password`,`id_tipo_usuario`,`nombre`,`apellido`,`email`) 
+/* $vSql = "INSERT INTO `personas`(`usuario`,`password`,`id_tipo_usuario`,`nombre`,`apellido`,`email`)
           values (\"".$vUser."\", \"".$vPassword."\", 2, \"".$vNombre."\", \"".$vApellido."\", \"".$vEmail."\")";
        mysqli_query($con, $vSql) or die (mysql_error());
        echo("El usuario se agrego correctamente.<br>");
@@ -130,15 +118,14 @@ $con->close();
  */
 
 // Cerrar la conexion
-//mysqli_close($con); 
+//mysqli_close($con);
 ?>
 </body>
-</html> 
+</html>
 
 <?php }
      else
       {
          echo("Usted no tiene permiso para entrar a esta área");
-      }  
+      }
     ?>
-

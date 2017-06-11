@@ -41,7 +41,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Uman Menú</a>
+            <a class="navbar-brand" href="index.php">Uman Menú</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -73,14 +73,8 @@
         }
         else {
           $fechaHoraMax = $fechaMax." ".$horaMax;
-          //$sql = "call getPedidosDiaConTope('$fecha','$fechaHoraMax')";
-          $sql  = "select pedido.fecha,pedido.id_usuario,pedido.id_menu,personas.usuario,personas.apellido, personas.nombre,menu.descripcion,pedido.comentario,pedido.fecha_ingreso
-          from pedido
-          inner join personas on personas.id=pedido.id_usuario
-          inner join menu on menu.id_menu=pedido.id_menu
-          where pedido.fecha='".$fecha."'";
+          $sql = "call getPedidosDiaConTope('$fecha','$fechaHoraMax')";
         }
-        var_dump($sql);
 		    $rec = mysqli_query($con, $sql);
 		    $pedidos = [];
 		    $count = 0;

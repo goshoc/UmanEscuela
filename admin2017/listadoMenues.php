@@ -11,7 +11,7 @@
               $comboUsers="";
               while ($row = $result->fetch_array(MYSQLI_ASSOC))
               {
-                  $comboUsers .=" <option value='".$row['usuario']."'>".$row['usuario']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
+                  $comboUsers .=" <option value='".$row['id']."'>".$row['usuario']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
               }
           }
           else
@@ -38,7 +38,7 @@
   <form action="../admin2017/listadoMenuesUser.php">
   <h2>Listar todos los pedidos de un usuario</h2>
   <p>Elegir el usuario para generar listado: </p>
-    <select name="user">
+    <select name="userId">
       <?php echo $comboUsers; ?>
     </select>
   <input type="submit" id="btnSubmit" value="Submit">

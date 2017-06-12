@@ -42,6 +42,16 @@
                   }
           });
         });
+        $('#BtnPassEmail').click(function()
+        {
+        $.ajax({
+        type: "POST",
+        url: "FormEnvioPassEmail.php",
+        success: function(a) {
+                $('#central').html(a);
+                  }
+          });
+        });
       });
 </script>
 
@@ -64,5 +74,6 @@
     <td><li id="BtnListUser"><a href="#">Listado Completo</a></li></td>
   </tr>
   <tr>
+    <td><li id="BtnPassEmail"><a href="#">Enviar contraseña por email</a></li></td>
   </tr>
 </table>

@@ -1,7 +1,9 @@
 <?php
       include_once("../conexion.php");
       session_start();
-      if($_SESSION['id_tipo_usuario']==1)
+
+
+      if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)
       {
   ?>
 <html lang="es">
@@ -45,9 +47,9 @@
       }
     </script>
   </head>
-  <body>
+  <body style="min-height: 100px !important; ">
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" >
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

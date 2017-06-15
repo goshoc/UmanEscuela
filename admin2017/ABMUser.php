@@ -58,7 +58,7 @@
 <table border="0" cellspacing="0" cellpadding="0" align="left">
   <tr>
     <td>
-      <div align="center">Menú Menú</div>
+      <div align="center">Menú</div>
     </td>
   </tr>
   <tr>

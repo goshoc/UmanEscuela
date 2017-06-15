@@ -107,4 +107,16 @@ $(document).ready(function()
       });
     });
 
+       $('#mapa').click(function()
+    {
+      $.ajax({
+      type: "POST",
+      url: "mapa.php",
+      success: function(a) {
+              $('#central').html(a);
+              toogleActive("mapa");
+                }
+      });
+    });
+
   });

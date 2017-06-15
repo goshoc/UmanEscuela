@@ -1,7 +1,7 @@
 <?php
       include_once("../conexion.php");
       session_start();
-      if($_SESSION['id_tipo_usuario']==1)
+      if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)
       {
       //Carga Menues
         $sql="SELECT id_menu,descripcion from menu";

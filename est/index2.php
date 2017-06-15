@@ -52,7 +52,7 @@
 include_once("../conexion.php"); 
 session_start();
 
-if($_SESSION['id_tipo_usuario']==2)
+if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==2)
 { 
   //CARGAR DIAS DISPONIBLES Y MENUES PARA CADA DIA
   $sql = "SELECT * FROM dia WHERE habilitado=1";

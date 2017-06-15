@@ -2,7 +2,7 @@
   include_once("../conexion.php"); 
 session_start();
 
-if($_SESSION['id_tipo_usuario']==1)
+if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)
 	{ 
 		$numero = count($_GET);
 			$tags = array_keys($_GET);// obtiene los nombres de las variables

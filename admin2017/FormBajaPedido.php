@@ -1,7 +1,7 @@
 <?php
 include_once("../conexion.php");
 session_start();
-if($_SESSION['id_tipo_usuario']==1)
+if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)
 {
   //Carga Users
     $sql="SELECT id,usuario from personas where id_tipo_usuario=2 order by usuario";

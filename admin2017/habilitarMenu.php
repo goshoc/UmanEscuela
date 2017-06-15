@@ -2,7 +2,7 @@
   include_once("../conexion.php"); 
 session_start();
 
-if($_SESSION['id_tipo_usuario']==1)
+if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)
   {  
   		//CARGA DIAS HABILITADOS
 			$sql = "SELECT * FROM dia WHERE habilitado='1'";

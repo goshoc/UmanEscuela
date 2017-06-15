@@ -48,7 +48,7 @@
 		<?php
 		session_start();
 		include_once "../conexion.php";
-		if($_SESSION['id_tipo_usuario']==2)
+		if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==2)
 		{
 			$numero = count($_POST);
 			$tags = array_keys($_POST);// obtiene los nombres de las varibles

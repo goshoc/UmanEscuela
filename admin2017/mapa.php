@@ -34,39 +34,6 @@
     <script type="text/javascript" src="recargaPantalla.js"></script>
 </head>
 
-<body style="min-height: 100px !important; ">
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top" >
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Uman Menú</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active" id="navHome"><a href="#">Home</a></li>
-            <li id="navHabDia"><a href="#">Habilitar días</a></li>
-            <li id="navHabMenu"><a href="#">Habilitar menues</a></li>
-            <li id="navABMPedidos"><a href="#">ABM pedidos</a></li>
-            <li id="navABMDias"><a href="#">ABM días</a></li>
-            <li id="navABMMenu"><a href="#">ABM menues</a></li>
-            <li id="navABMUser"><a href="#">ABM usuarios</a></li>
-            <li id="navListMenu"><a href="#">Listado de pedidos</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-          <li id="navLogOut"><a href="LogOut.php">Log out</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-   <div class="container" id="central">
-   </div>
-  </body>
   <footer class="navbar-fixed-bottom">
    <?php include_once("Footer.html") ?>
   </footer>

@@ -66,13 +66,12 @@
             <li id="navHabDia"><a href="#">Habilitar días</a></li>
             <li id="navHabMenu"><a href="#">Habilitar menues</a></li>
             <li id="navABMPedidos"><a href="#">ABM pedidos</a></li>
-            <li id="navABMDias"><a href="#">ABM días</a></li>
             <li id="navABMMenu"><a href="#">ABM menues</a></li>
             <li id="navABMUser"><a href="#">ABM usuarios</a></li>
             <li id="navListMenu"><a href="#">Listado de pedidos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <li id="navLogOut"><a href="LogOut.php">Log out</a></li>
+          <li id="navLogOut"><a href="LogOut.php">Cerrar Sesión</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

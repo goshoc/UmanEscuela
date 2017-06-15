@@ -5,7 +5,7 @@ $(document).ready(function()
   		$("#navHome").removeClass("active");
   		$("#navHabDia").removeClass("active");
   		$("#navHabMenu").removeClass("active");
-  		$("#navABMDias").removeClass("active");
+  		//$("#navABMDias").removeClass("active");
   		$("#navABMMenu").removeClass("active");
   		$("#navABMUser").removeClass("active");
       $("#navListMenu").removeClass("active");
@@ -48,7 +48,7 @@ $(document).ready(function()
     						}
      		});
     });
-    $('#navABMDias').click(function()
+   /* $('#navABMDias').click(function()
    {
     	$.ajax({
     	type: "POST",
@@ -59,7 +59,7 @@ $(document).ready(function()
           toogleActive("navABMDias");
     	}
       });
-   });
+   });*/
     $('#navABMMenu').click(function()
     {
     	$.ajax({

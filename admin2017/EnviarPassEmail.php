@@ -51,7 +51,7 @@
 <?php
  //Captura datos desde el Form anterior
 
-$vUserID = $_POST['id'];
+$vUserID = $_POST['user'];
 $vSqlverif = "SELECT * FROM personas WHERE id='$vUserID'";
 $vResultado = mysqli_query($con, $vSqlverif) or die (mysql_error($con));
 while ($row = $vResultado->fetch_array(MYSQLI_ASSOC))
@@ -60,20 +60,20 @@ while ($row = $vResultado->fetch_array(MYSQLI_ASSOC))
   $vUser = $row['usuario'];
   $vPassword = $row['password'];
 }
-$vEmail = filter_var($Email, FILTER_SANITIZE_EMAIL);
+$Email = filter_var($Email, FILTER_SANITIZE_EMAIL);
 
 $Title = "UMAN";
 $EmailBody = "Acaba de pedir la contraseña.\n Usuario:'".$vUser."'\nContraseña: '".$vPassword."' ";
 //Arma la instrucción SQL y luego la ejecuta
 //Si hay que validar si algo existe o no, va aca.
 
-if (filter_var($vEmail, FILTER_VALIDATE_EMAIL) === false){
-       echo ("'".$vEmail."' no es un email válido.<br>");
+if (filter_var($Email, FILTER_VALIDATE_EMAIL) === false){
+       echo ("'".$Email."' no es un email válido.<br>");
        echo ("<A href='index.php'>Volver a Uman Menu</A>");
 }
 else {
 
-       $bool = mail('$vEmail','$Title','$EmailBody');
+       $bool = mail('$Email','$Title','$EmailBody');
       if($bool){ echo "Mensaje enviado";}  else{echo "Mensaje no enviado";}
        echo ("<a href='index.php'>VOLVER AL MENU</a>");
 

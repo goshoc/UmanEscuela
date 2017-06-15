@@ -20,7 +20,7 @@
           }
       $con->close(); //cerramos la conexión
   ?>
-<form  action="EnviarPassPorEmail.php" method="POST" name="FormEnvio">
+<form  action="EnviarPassEmail.php" method="POST" name="FormEnvio">
 
   <p>Elegir el usuario para enviarle la contraseña al mail guardado: </p>
     <select name="user">

@@ -49,9 +49,8 @@
 		<title> Listados completo </title>
 	</head>
 	<body>
-
-
-<nav class="navbar navbar-default navbar-fixed-top">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -62,10 +61,13 @@
           </button>
           <a class="navbar-brand" href="index.php">Uman Menú</a>
         </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          <li id="navLogOut"><a href="LogOut.php">Cerrar sesión</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </nav>
-
-
-
 <div class="container">
 <?php
 
@@ -119,33 +121,13 @@ echo "¡ No se ha encontrado ningún registro !";
 }
 ?>
 <td colspan="1"></td>
-
 <?php
-/*
-while ($fila = $vResultado->fetch_assoc())
-{
-?>
-
-  <div class="col-xs-6 col-md-3">
-
-      <?php echo "<a class='thumbnail' href='DetallePelicula.php?personas=" . $fila['IDPelicula'] . "'> <img src='" . $fila['Imagen'] . "' alt='poster pelicula'/></a>"; ?>
-
-
-
-</div>
-
-<?php
-}*/
 // Liberar conjunto de resultados
 $vResultado->close();
 // Cerrar la conexion
 $con->close();
 ?>
-
-
 <ul>
-
-
 <?php
 if ($total_paginas > 1){?>      Ir a Página:
 

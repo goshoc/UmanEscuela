@@ -1,8 +1,8 @@
-<?php  
-      include_once("../conexion.php"); 
+<?php
+      include_once("../conexion.php");
       session_start();
       if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)
-      {  
+      {
   ?>
 <html>
 
@@ -14,7 +14,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   <!-- 
+   <!--
     Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
@@ -34,22 +34,28 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">Uman Menú</a>
-        </div>
-    </nav> 
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.php">Uman Menú</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+        <li id="navLogOut"><a href="LogOut.php">Cerrar sesión</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+<div class="container">
 
-<div class="container"> 
-
-<?php 
+<?php
 //Captura datos desde el Form anterior
 
 $vUser = $_POST['user'];
@@ -79,12 +85,11 @@ else { echo("No existe pedido del usuario para la fecha indicada");
 ?>
 
 </body>
-</html> 
+</html>
 
 <?php }
      else
       {
          echo("Usted no tiene permiso para entrar a esta área");
-      }  
+      }
     ?>
-

@@ -22,7 +22,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
   </head>
-  <body>
+  <body style="min-height: 200px !important">
   <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -37,8 +37,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">ELEGIR  MUNÚS</a></li>
-            <li><a href="info.php">SOBRE NOSOTROS</a></li>
+            <li class="active"><a href="index.php">Elegir Menús</a></li>
+            <li><a href="info.php">Sobre Nosotros</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li><a href="LogOut.php">Log out</a></li>

@@ -48,6 +48,8 @@
         <img alt="UmanDelivery" src="../images/delivery.jpg">
         <h3>Direccion: España 1429, Rosario - <a href="https://wego.here.com/directions/mix/mylocation/e-eyJuYW1lIjoiVU1BTiIsImFkZHJlc3MiOiJFc3BhXHUwMGYxYSAxNDI5LCBSb3NhcmlvIiwibGF0aXR1ZGUiOi0zMi45NTI4MDM0LCJsb25naXR1ZGUiOi02MC42NDgzMjgyLCJwcm92aWRlck5hbWUiOiJmYWNlYm9vayIsInByb3ZpZGVySWQiOjM0NTYzOTcwNTU4NDc4MH0=?map=-32.9528,-60.64833,15,normal&fb_locale=es_LA">Cómo llegar</a></h3>
         <h3>Teléfonos: 0341 243 0606 | 0341 421 1174</h3>
+        <h3><a href="https://facebook.com/umanrosario/">Encontranos en nuestro Facebook</a></h3>
+        
         <h3>Horarios:</h3>
         <h4>Lunes: 18:00 - 23:30</h4>
         <h4>Martes: 18:00 - 23:30</h4>

@@ -62,7 +62,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active" id="navHome"><a href="#">Home</a></li>
+            <li class="active" id="navHome"><a href="#">Inicio</a></li>
             <li id="navHabDia"><a href="#">Habilitar días</a></li>
             <li id="navHabMenu"><a href="#">Habilitar menues</a></li>
             <li id="navABMPedidos"><a href="#">ABM pedidos</a></li>
@@ -79,6 +79,21 @@
 	 <div class="container" id="central">
 	 </div>
   </body>
+
+  <div class="container">
+
+  <h1 style="text-align:center">INICIO</h3><br>
+
+  <p>Bienvenido al sistema de gestión y registro de pedidos.</p>
+  
+  <p>Este sistema le permitirá gestionar de forma integral usuarios, pedidos, menús, días de pedidos vigentes. Podrá consultarlos y modificarlos online, así como limitar los días habilitados para realizar pedidos por parte de los estudiantes.</p>
+
+  <p> La barra de navegación de la sección superior de la pantalla lo ayudará a acceder a cada una de las funcionalidades descriptas anteriormente, de manera similar en la seccion inferior de la pantalla podrá encontrar un en lace al "mapa del sitio" donde se listan cada una de las secciones a las que podra acceder en detalle y la forma en que estan organizadas, asi como se otorga el contacto del administrador web al que podrá realizar consultas al respecto del sistema o ante eventuales inconvenientes.</p>
+  
+  <p>No olvide cerrar la sesión antes de abandonar la página.</p>
+
+</div>
+
   <footer class="navbar-fixed-bottom">
    <?php include_once("Footer.html") ?>
   </footer>

@@ -85,14 +85,14 @@ else {
 $inicio = ($pagina - 1) * $Cant_por_Pag;
 
 }// total de páginas
-$vSql = "SELECT * FROM pedido inner join menu on pedido.id_menu=menu.id_menu where pedido.id_menu!=9999";
+$vSql = "SELECT * FROM pedido inner join menu on pedido.id_menu=menu.id_menu inner join personas on pedido.id_usuario= personas.id where pedido.id_menu!=9999";
 $vResultado = mysqli_query($con, $vSql) or die (mysqli_error($con));
 $total_registros=$vResultado->num_rows;
 $total_paginas = ceil($total_registros/ $Cant_por_Pag);
 /* Los SELECT tienen una cláusula llamada LIMIT para indicar los registros a mostrar
 LIMIT tiene dos argumentos, el primero es el registro por el que empezar los resultados y el segundo el número de resultados
 */
-$vSql = "SELECT * FROM pedido inner join menu on pedido.id_menu=menu.id_menu where pedido.id_menu!=9999 order by fecha,usuario limit $inicio,$Cant_por_Pag ";
+$vSql = "SELECT * FROM pedido inner join menu on pedido.id_menu=menu.id_menu  inner join personas on pedido.id_usuario= personas.id where pedido.id_menu!=9999 order by fecha,usuario limit $inicio,$Cant_por_Pag ";
 $vResultado = mysqli_query($con, $vSql) or die (mysqli_error($con));
 ?>
 
@@ -131,23 +131,7 @@ echo "¡ No se ha encontrado ningún registro !";
 }
 ?>
 <td colspan="1"></td>
-
 <?php
-/*
-while ($fila = $vResultado->fetch_assoc())
-{
-?>
-
-  <div class="col-xs-6 col-md-3">
-
-      <?php echo "<a class='thumbnail' href='DetallePelicula.php?personas=" . $fila['IDPelicula'] . "'> <img src='" . $fila['Imagen'] . "' alt='poster pelicula'/></a>"; ?>
-
-
-
-</div>
-
-<?php
-}*/
 // Liberar conjunto de resultados
 $vResultado->close();
 // Cerrar la conexion

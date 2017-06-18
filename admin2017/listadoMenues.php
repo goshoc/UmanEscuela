@@ -25,16 +25,16 @@
      <h2>Listar pedidos de todos los usuarios</h2>
 	 <p>Elegir fecha para generar listado: </p>
 	 <p>yyyy-mm-dd</p>
-	 <input type="text" name="dateSelected"><br>
+	 <input type="text" name="dateSelected"><br><br>
    <p>Elegir la fecha hasta la que se quiere listar los pedidos</p>
    <p>yyyy-mm-dd</p>
-   <input type="text" name="dateMaxSelected" value="2017-12-31"><br>
+   <input type="text" name="dateMaxSelected" value="2017-12-31"><br><br>
    <p>Elegir la hora hasta la que se quiere listar los pedidos</p>
    <p>hh:mm:ss</p>
    <input type="text" name="timeMaxSelected" value="23:59:59"><br>
 	 <input type="submit" id="btnSubmit" value="Submit">
   </form>
-
+<br><br>
   <form action="../admin2017/listadoMenuesUser.php">
   <h2>Listar todos los pedidos de un usuario</h2>
   <p>Elegir el usuario para generar listado: </p>

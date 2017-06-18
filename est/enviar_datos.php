@@ -90,4 +90,8 @@
 		?>
 		</div>
 	</body>
+  <footer class="navbar-fixed-bottom">
+   <?php include_once("Footer.html") ?>
+  </footer>
+
 </html>

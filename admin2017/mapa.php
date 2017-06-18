@@ -188,9 +188,9 @@
 
 <p><a href="index.php">HOME</a></p>
 
-<p><a href="#">HABILITAR DÍAS</a></p>
+<p><a- href="#">HABILITAR DÍAS</a></p>
 
-<p><a href="#">HABILITAR MENÚS</a></p>
+<p><a- href="#">HABILITAR MENÚS</a></p>
 
 <p><a href="#">ABMC PEDIDOS</a></p>
   <li id="BtnAltaPedido"><a href="#">Alta</a></li>
@@ -211,9 +211,9 @@
   <li id="BtnListUser"><a href="#">Listado Completo</a></li>
   <li id="BtnPassEmail"><a href="#">Enviar contraseña por email</a></li><br>
 
-<p><a href="#">LISTADO DE PEDIDOS</a></p>
+<p><a- href="#">LISTADO DE PEDIDOS</a></p>
 
-<p><a href="#">CERRAR SESIÓN</a></p><br>
+<p><a- href="#">CERRAR SESIÓN</a></p><br>
 
 </div>
 </html>

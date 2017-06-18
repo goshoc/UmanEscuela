@@ -51,7 +51,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
+            <li><a href="index.php">ELEGIR  MUNÚS</a></li>
+            <li><a href="info.php">SOBRE NOSOTROS</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li><a href="LogOut.php">Log out</a></li>
@@ -64,9 +65,11 @@
 
 <div class="container">
 
-<p><a href="index.php">HOME</a></p>
+<h3 style="text-align:center">Mapa del sitio</h3><br>
 
 <p><a href="index.php">ELEGIR  MUNÚS</a></p>
+
+<p><a href="info.php">SOBRE NOSOTROS</a></p>
 
 </div>
 </body>

@@ -33,11 +33,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Uman Menú</a>
+          <a class="navbar-brand" href="index.php">Uman Menú</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="index.php">ELEGIR  MUNÚS</a></li>
+            <li><a href="info.php">SOBRE NOSOTROS</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           <li><a href="LogOut.php">Log out</a></li>

@@ -185,6 +185,7 @@
 
 <div class="container">
 
+<h3 style="text-align:center">Mapa del sitio</h3><br>
 
 <p><a href="index.php">HOME</a></p>
 

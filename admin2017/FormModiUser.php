@@ -20,6 +20,9 @@
           }
       $con->close(); //cerramos la conexión
   ?>
+
+<h3 style="text-align:center">Modificar usuario</h3><br>
+
 <form  action="ModiUser.php" method="POST" name="FormModi">
 
   <p>Elegir el usuario para modificar: </p>

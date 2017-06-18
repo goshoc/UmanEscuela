@@ -41,7 +41,7 @@ $con->close(); //cerramos la conexión
       }
 ?>
 
-
+<h3 style="text-align:center">Alta de pedido</h3><br>
 <form  action="AltaPedido.php" method="POST" name="FormAlta">
 <label>Usuario:</label>
   <select name="usuario">

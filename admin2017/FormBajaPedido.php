@@ -26,6 +26,7 @@ $con->close(); //cerramos la conexión
       }
 ?>
 
+<h3 style="text-align:center">Baja de pedido</h3><br>
 <form  action="DeletePedido.php" method="POST" name="FormDelete">
 <h2>Seleccione pedido a eliminar:</h2>
 <label>Usuario:</label>

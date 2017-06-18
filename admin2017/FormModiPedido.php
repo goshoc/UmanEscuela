@@ -26,6 +26,8 @@ $con->close(); //cerramos la conexión
       }
 ?>
 
+<h3 style="text-align:center">Modificación de pedido</h3><br>
+
 <form  action="ModiPedido.php" method="POST" name="FormModi">
 <h2>Seleccione pedido a modificar:</h2>
 <label>Usuario:</label>

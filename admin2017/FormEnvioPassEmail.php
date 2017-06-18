@@ -1,4 +1,4 @@
-<?php
+  <?php
       include_once("../conexion.php");
       session_start();
       if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)
@@ -20,6 +20,9 @@
           }
       $con->close(); //cerramos la conexión
   ?>
+
+<h3 style="text-align:center">Enviar constraseña de usuario por email</h3><br>
+
 <form  action="EnviarPassEmail.php" method="POST" name="FormEnvio">
 
   <p>Elegir el usuario para enviarle la contraseña al mail guardado: </p>

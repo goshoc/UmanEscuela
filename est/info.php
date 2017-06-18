@@ -39,6 +39,9 @@
             <li><a class="active" href="info.php">Sobre Nosotros</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+          <li><a href="LogOut.php">Cerrar sesión</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
           </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -58,7 +61,7 @@
         <h4>Viernes: 11:30 - 14:30</h4>
         <h4>Sábado: 21:00 - 0:00</h4>
         <h4>Domingo: 19:00 - 23:30</h4>
-        <h4></h4>
+        <h4></h4><br><br>
       </div>
     </body>
     <footer class="navbar-fixed-bottom">

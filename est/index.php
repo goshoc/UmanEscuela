@@ -41,7 +41,7 @@
             <li><a href="info.php">Sobre Nosotros</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <li><a href="LogOut.php">Log out</a></li>
+          <li><a href="LogOut.php">Cerrar sesión</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -111,7 +111,7 @@ if(!empty($menues))
 }
 echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".count($diasHabilitados)."\">";
 //echo("<input type=\"button\" name=\"enviar\" title=\"enviar\" value=\"Enviar\">");
-echo("<input type=\"submit\"  value=\"Enviar\"/>");
+echo("<input type=\"submit\"  value=\"Enviar\"/>")?><br><?php; ?><br><?php
   }
       else{
         echo("Usted no tiene permiso para entrar a esta área");

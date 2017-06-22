@@ -83,7 +83,7 @@
 
      <p>Este sistema le permitirá gestionar de forma integral usuarios, pedidos, menús, días de pedidos vigentes. Podrá consultarlos y modificarlos online, así como limitar los días habilitados para realizar pedidos por parte de los estudiantes.</p>
 
-     <p> La barra de navegación de la sección superior de la pantalla lo ayudará a acceder a cada una de las funcionalidades descriptas anteriormente, de manera similar en la sección inferior de la pantalla podrá encontrar un enlace al "mapa del sitio" donde se listan cada una de las secciones a las que podrá acceder en detalle y la forma en que están organizadas, así como se otorga el contacto del administrador web al que podrá realizar consultas al respecto del sistema o ante eventuales inconvenientes.</p>
+     <p> La barra de navegación de la sección superior de la pantalla lo ayudará a acceder a cada una de las funcionalidades descriptas anteriormente, de manera similar en la sección inferior de la pantalla podrá encontrar un enlace al "mapa del sitio" donde se listan cada una de las secciones a las que podrá acceder en detalle y la forma en que están organizadas.</p>
 
      <p>No olvide cerrar la sesión antes de abandonar la página.</p>
 	 </div>

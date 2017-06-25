@@ -1,4 +1,7 @@
-
+<?php
+include_once("../conexion.php");
+session_start();
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -50,9 +53,7 @@
 
 	<div class="container">
 
- <?php
-include_once("../conexion.php");
-session_start();
+<?php
 
 if($_SESSION['id_tipo_usuario']==2)
 {
@@ -68,6 +69,8 @@ if($_SESSION['id_tipo_usuario']==2)
   }
 
 echo("<h1>Entraste al menu del alumno: ". $_SESSION['nombre']. "</h1>");
+echo"<p>En el caso de marcar un menú un día que no querías, tenes que marcar ese día la opción que dice \"NADA\".</p>
+";
 
  /* Inicio De Tablas*/
  echo("<form action=\"../est/enviar_datos.php\" method=\"POST\">");

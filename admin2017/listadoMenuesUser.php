@@ -67,7 +67,7 @@
    		echo("<table class=\"table table-striped table table-bordered\" name=\"".$userId."\" id=\"tablaPrincipal\">");
 	    echo ("<h2>".$pedidos[0][3]."</h2>");
 	    echo "<tr>";
-              echo "<th>Fecha</th><th>Apellido</th><th>Nombre</th><th>Menú</th><th>Comentario</th><th>fecha de carga</th>";
+              echo "<th>Día del menú</th><th>Apellido</th><th>Nombre</th><th>Menú</th><th>Comentario</th><th>Fecha de carga</th>";
 	    for($i=0;$i<count($pedidos);$i++)
 	    {
 	    	echo "<tr>";

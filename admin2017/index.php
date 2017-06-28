@@ -1,6 +1,7 @@
 <?php
+  session_start();
       include_once("../conexion.php");
-      session_start();
+
 
 
       if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)

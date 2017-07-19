@@ -24,7 +24,6 @@ session_start();
    <!--Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
-    <link href="../css/signin.css" rel="stylesheet">
     <link href="../css/indexEst.css" rel="stylesheet">
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -40,7 +39,7 @@ session_start();
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
           <p>En el caso de marcar un menú un día que no querías, tenes que marcar ese día la opción que dice "NADA".</p>
         </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--16dp">
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--8dp">
           <a href="LogOut.php" class="mdl-layout__tab">Cerrar sesión</a>
         </div>
       </header>
@@ -67,7 +66,7 @@ if($_SESSION['id_tipo_usuario']==2)
  /* Inicio De Tablas*/
    echo("<form action=\"../est/enviar_datos.php\" method=\"POST\">");
     for ($i=0; $i < count($diasHabilitados); $i++) {
-      echo("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp\">");
+      echo("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp\">");
        echo("<table class=\"mdl-data-table mdl-js-data-table\" style=\"width:100%\" name=".$diasHabilitados[$i][0].">");
         echo (" <thead>
                 <tr>
@@ -136,11 +135,16 @@ if($_SESSION['id_tipo_usuario']==2)
 
 }
 echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".count($diasHabilitados)."\">";
-//echo("<input type=\"button\" name=\"enviar\" title=\"enviar\" value=\"Enviar\">");
-echo("<button type=\"submit\"class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored\">
+?>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+<div style="width:100%">
+<button type="submit" class="btn-confirmar mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="width:100%">
   Confirmar
-</button>");
-//echo("<input type=\"submit\"  value=\"Enviar\"/>")?><br><?php; ?><br><?php
+</button>
+</div>
+</section>
+
+<?php
   }
       else{
         echo("Usted no tiene permiso para entrar a esta área");

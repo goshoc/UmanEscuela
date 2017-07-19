@@ -6,121 +6,150 @@ session_start();
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   <!--
-    Cuando este lista, cambiar favicon y descomentarlo
+    <!-- El Meta Viewport --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <!-- El CSS de Material Design con un color establecido , yo usaré el color Rosado Índigo -->
+    <link rel="stylesheet" href="../css/materiald/styles.css" />
+    <link rel="stylesheet" href="../css/materiald/estilo.css" /> 
+    <link rel="stylesheet" href="../css/materiald/material.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-pink.min.css" />
+ 
+    <!-- El archivo JS de Material Design -->
+    <script src="../css/materiald/material.min.js"></script>
+    <!-- Un tipo de Fuente desde Google Fonts --> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+   <!--Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="../css/signin.css" rel="stylesheet">
     <link href="../css/indexEst.css" rel="stylesheet">
-    <!-- Custom style for navbar -->
-    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
-    <!-- FONTS-->
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-
   </head>
-  <body style="min-height: 200px !important">
-  <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">Uman Menú</a>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Elegir Menús</a></li>
-            <li><a href="info.php">Sobre Nosotros</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-          <li><a href="LogOut.php">Cerrar sesión</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Bienvenido 
+            <?php echo($_SESSION['nombre']) ?>
+          </h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <p>En el caso de marcar un menú un día que no querías, tenes que marcar ese día la opción que dice "NADA".</p>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--16dp">
+          <a href="LogOut.php" class="mdl-layout__tab">Cerrar sesión</a>
+        </div>
+      </header>
 
 
-	<div class="container">
+	 <main class="mdl-layout__content">
+      <div class="mdl-layout__tab-panel is-active">
+
 
 <?php
-
+//  if($_SESSION['id_tipo_usuario']==2)
 if($_SESSION['id_tipo_usuario']==2)
 {
   //CARGAR DIAS DISPONIBLES Y MENUES PARA CADA DIA
-  $sql = "SELECT * from dia where habilitado='1' and fecha not in(select fecha from pedido where id_usuario=".$_SESSION['id'].")";
-  $rec = mysqli_query($con, $sql) or die(mysqli_error($con));
-  $diasHabilitados = []; //Esto carga el primer elemento como fecha y como nombre_dia, puede ser?
-  $count = 0;
-  while ($row =  mysqli_fetch_array($rec))
-  {
-    $diasHabilitados[$count] = array($row['fecha'],$row['nombre_dia']);
-    $count++;
-  }
-
-echo("<h1>Entraste al menu del alumno: ". $_SESSION['nombre']. "</h1>");
-echo"<p>En el caso de marcar un menú un día que no querías, tenes que marcar ese día la opción que dice \"NADA\".</p>
-";
-
+    $sql = "SELECT * from dia where habilitado='1' and fecha not in(select fecha from pedido where id_usuario=".$_SESSION['id'].")";
+    $rec = mysqli_query($con, $sql) or die(mysqli_error($con));
+    $diasHabilitados = []; //Esto carga el primer elemento como fecha y como nombre_dia, puede ser?
+    $count = 0;
+    while ($row =  mysqli_fetch_array($rec))
+    {
+      $diasHabilitados[$count] = array($row['fecha'],$row['nombre_dia']);
+      $count++;
+    }
  /* Inicio De Tablas*/
- echo("<form action=\"../est/enviar_datos.php\" method=\"POST\">");
-  for ($i=0; $i < count($diasHabilitados); $i++) {
-     echo("<table class=\"table table-striped table table-bordered\" name=\"".$diasHabilitados[$i][0]."\">");
-  echo ("<h2>".$diasHabilitados[$i][1]." ".$diasHabilitados[$i][0]."</h2>");
-  echo "<tr>";
-  echo "<td>";
+   echo("<form action=\"../est/enviar_datos.php\" method=\"POST\">");
+    for ($i=0; $i < count($diasHabilitados); $i++) {
+      echo("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--8dp\">");
+       echo("<table class=\"mdl-data-table mdl-js-data-table\" style=\"width:100%\" name=".$diasHabilitados[$i][0].">");
+        echo (" <thead>
+                <tr>
+                  <th>".$diasHabilitados[$i][1]." ".$diasHabilitados[$i][0]."
+                  </th>
+                </tr>
+              </thead>");
 
-//busco menues para el dia $i
- $sql= "
-SELECT * FROM `menu` join `dia-menu` on menu.id_menu=`dia-menu`.`id_menu`
-WHERE `dia-menu`.`fecha`='".$diasHabilitados[$i][0]."'";
-$rec = mysqli_query($con, $sql);
-//$menues = array('id_menu','descripcion');
-$menues =[];
-$count = 0;
-  while ($row =  mysqli_fetch_array($rec))
-  {
-    $menues[$count] = array($row['id_menu'],$row['descripcion']);
-    $count++;
-  }
-//fin busca menues [$i]
-//REVISAR SI SE ACOMODA BIEN EL TD Y TR O HAY QUE INCLUIRLO EN EL FOR, PARA QUE SE HAGA STRIPED TABLE
-if(!empty($menues))
-{
-    for($y=0;$y<count($menues);$y++)
+
+    //busco menues para el dia $i
+       $sql= "
+      SELECT * FROM `menu` join `dia-menu` on menu.id_menu=`dia-menu`.`id_menu`
+      WHERE `dia-menu`.`fecha`='".$diasHabilitados[$i][0]."'";
+      $rec = mysqli_query($con, $sql);
+      //$menues = array('id_menu','descripcion');
+      $menues =[];
+      $count = 0;
+        while ($row =  mysqli_fetch_array($rec))
+        {
+          $menues[$count] = array($row['id_menu'],$row['descripcion']);
+          $count++;
+        }
+    //fin busca menues [$i]
+    //Inicio  cuerpo tabla
+      if(!empty($menues))
       {
-        echo ("<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\"/> ".$menues[$y][1]."</br>");
-      }
-      echo "<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\""."9999"."\"/> "."Nada"."</br>";
-   echo "<p>Comentarios</p>";
-   echo "<input type="."text"." name="."comentario".$diasHabilitados[$i][0]." value=\"\" /> </br>";
-   echo "<input type=\"hidden\" name=\"fechaTabla".$i."\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".$diasHabilitados[$i][0]."\">";
-}
-   echo "</td>";
-   echo "</tr>";
-  echo " </table>";
+        echo "<tbody>";
+          for($y=0;$y<count($menues);$y++)
+            {
+              echo "<tr>";
+                echo "<td>";
+                  echo("<label class=\"mdl-radio mdl-js-radio mdl-js-ripple-effect\" for=".$diasHabilitados[$i][0].$menues[$y][0].">");
+                    echo ("<input type=\"radio\" id=".$diasHabilitados[$i][0].$menues[$y][0]." class=\"mdl-radio__button\" name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\">");
+              //echo ("<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\"/> ".$menues[$y][1]."</br>");
+                    echo("<span class=\"mdl-radio__label\">".$menues[$y][1]."</span>");
+                    echo("    </label>
+                        </td>
+                      </tr>");
+            }
+              echo "<tr>";
+                echo "<td>";
+                  echo("<label class=\"mdl-radio mdl-js-radio mdl-js-ripple-effect\" for=".$diasHabilitados[$i][0]."nada".">");
+                    echo ("<input type=\"radio\" id=".$diasHabilitados[$i][0]."nada"." class=\"mdl-radio__button\" name=".$diasHabilitados[$i][0]." value=\"9999\">");
+                    echo("<span class=\"mdl-radio__label\">Nada</span>");
+                    echo("    </label>
+                        </td>
+                      </tr>");
+              echo "<tr>";
+                echo "<td>";
+                  echo(" <div class=\"mdl-textfield mdl-js-textfield\">
+                      <input type=\"text\" name=\"comentario".$diasHabilitados[$i][0]."\" class=\"mdl-textfield__input\"  id=\"comentario".$diasHabilitados[$i][0]."\" value=\"\">
+                      <label class=\"mdl-textfield__label\" for=\"comentario".$diasHabilitados[$i][0]."\">Comentario...</label>
+                      </div>
+                      ");
+                    echo("</td>
+                      </tr>");
+                     }
+        //ESTO ULTIMO NO MODIFIQUE
+         echo "<input type=\"hidden\" name=\"fechaTabla".$i."\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".$diasHabilitados[$i][0]."\">";
+         echo "</tbody>";
+        echo " </table>";
+     
+
+  echo"</section>";
 /* Fin de tablas */
 
 }
 echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".count($diasHabilitados)."\">";
 //echo("<input type=\"button\" name=\"enviar\" title=\"enviar\" value=\"Enviar\">");
-echo("<input type=\"submit\"  value=\"Enviar\"/>")?><br><?php; ?><br><?php
+echo("<button type=\"submit\"class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored\">
+  Confirmar
+</button>");
+//echo("<input type=\"submit\"  value=\"Enviar\"/>")?><br><?php; ?><br><?php
   }
       else{
         echo("Usted no tiene permiso para entrar a esta área");
       }
 ?>
 	</div>
+
+  </main>
+  </div>
   </body>
   <footer class="navbar-fixed-bottom">
    <?php include_once("Footer.html") ?>

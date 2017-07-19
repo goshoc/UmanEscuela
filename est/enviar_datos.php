@@ -54,8 +54,10 @@
 			$tags = array_keys($_POST);// obtiene los nombres de las varibles
 			$valores = array_values($_POST);// obtiene los valores de las varibles
 
+
 			for($j=0;$j<$_POST["cantTablas"];$j++)
 			{
+
 				$fechaTabla[$j] = $_POST["fechaTabla".$j];
 			}
 			for($l=0;$l<count($fechaTabla);$l++)

@@ -1,0 +1,10 @@
+.mdl-data-table .mdl-js-data-table td
+{
+	text-align:left;
+	font-size: 46px;
+}
+.mdl-data-table th 
+{
+	font-size: 48px;
+	text-align:left;
+}

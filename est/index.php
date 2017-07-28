@@ -9,18 +9,18 @@ session_start();
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- El Meta Viewport --> 
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <!-- El Meta Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- El CSS de Material Design con un color establecido , yo usaré el color Rosado Índigo -->
     <link rel="stylesheet" href="../css/materiald/styles.css" />
-    <link rel="stylesheet" href="../css/materiald/estilo.css" /> 
     <link rel="stylesheet" href="../css/materiald/material.min.css">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-pink.min.css" />
- 
+    <link rel="stylesheet" href="../css/materiald/estilo.css" />
     <!-- El archivo JS de Material Design -->
     <script src="../css/materiald/material.min.js"></script>
-    <!-- Un tipo de Fuente desde Google Fonts --> 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    <!-- Un tipo de Fuente desde Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
    <!--Cuando este lista, cambiar favicon y descomentarlo
    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
@@ -32,7 +32,7 @@ session_start();
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-          <h3>Bienvenido 
+          <h3>Bienvenido
             <?php echo($_SESSION['nombre']) ?>
           </h3>
         </div>
@@ -47,6 +47,8 @@ session_start();
 
 	 <main class="mdl-layout__content">
       <div class="mdl-layout__tab-panel is-active">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--12-col ">
 
 
 <?php
@@ -66,11 +68,11 @@ if($_SESSION['id_tipo_usuario']==2)
  /* Inicio De Tablas*/
    echo("<form action=\"../est/enviar_datos.php\" method=\"POST\">");
     for ($i=0; $i < count($diasHabilitados); $i++) {
-      echo("<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--4dp\">");
+      echo("<section class=\"section--center  mdl-shadow--4dp\">");
        echo("<table class=\"mdl-data-table mdl-js-data-table\" style=\"width:100%\" name=".$diasHabilitados[$i][0].">");
         echo (" <thead>
                 <tr>
-                  <th>".$diasHabilitados[$i][1]." ".$diasHabilitados[$i][0]."
+                  <th class=\"titulo\" >".$diasHabilitados[$i][1]." ".$diasHabilitados[$i][0]."
                   </th>
                 </tr>
               </thead>");
@@ -97,7 +99,7 @@ if($_SESSION['id_tipo_usuario']==2)
           for($y=0;$y<count($menues);$y++)
             {
               echo "<tr>";
-                echo "<td>";
+                echo "<td class=\"fila_menu\">";
                   echo("<label class=\"mdl-radio mdl-js-radio mdl-js-ripple-effect\" for=".$diasHabilitados[$i][0].$menues[$y][0].">");
                     echo ("<input type=\"radio\" id=".$diasHabilitados[$i][0].$menues[$y][0]." class=\"mdl-radio__button\" name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\">");
               //echo ("<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\"/> ".$menues[$y][1]."</br>");
@@ -107,7 +109,7 @@ if($_SESSION['id_tipo_usuario']==2)
                       </tr>");
             }
               echo "<tr>";
-                echo "<td>";
+                echo "<td class=\"fila_menu\">";
                   echo("<label class=\"mdl-radio mdl-js-radio mdl-js-ripple-effect\" for=".$diasHabilitados[$i][0]."nada".">");
                     echo ("<input type=\"radio\" id=".$diasHabilitados[$i][0]."nada"." class=\"mdl-radio__button\" name=".$diasHabilitados[$i][0]." value=\"9999\">");
                     echo("<span class=\"mdl-radio__label\">Nada</span>");
@@ -115,7 +117,7 @@ if($_SESSION['id_tipo_usuario']==2)
                         </td>
                       </tr>");
               echo "<tr>";
-                echo "<td>";
+                echo "<td class=\"fila_menu\">";
                   echo(" <div class=\"mdl-textfield mdl-js-textfield\">
                       <input type=\"text\" name=\"comentario".$diasHabilitados[$i][0]."\" class=\"mdl-textfield__input\"  id=\"comentario".$diasHabilitados[$i][0]."\" value=\"\">
                       <label class=\"mdl-textfield__label\" for=\"comentario".$diasHabilitados[$i][0]."\">Comentario...</label>
@@ -128,7 +130,7 @@ if($_SESSION['id_tipo_usuario']==2)
          echo "<input type=\"hidden\" name=\"fechaTabla".$i."\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".$diasHabilitados[$i][0]."\">";
          echo "</tbody>";
         echo " </table>";
-     
+
 
   echo"</section>";
 /* Fin de tablas */
@@ -136,7 +138,7 @@ if($_SESSION['id_tipo_usuario']==2)
 }
 echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".count($diasHabilitados)."\">";
 ?>
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+<section class="section--center mdl-shadow--2dp">
 <div style="width:100%">
 <button type="submit" class="btn-confirmar mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="width:100%">
   Confirmar
@@ -151,6 +153,8 @@ echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class
       }
 ?>
 	</div>
+</div>
+</div>
 
   </main>
   </div>

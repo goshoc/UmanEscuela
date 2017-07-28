@@ -1,7 +1,12 @@
-td, th, tr, span
+td.fila_menu
 {
 	text-align:left;
-	font-size: 46px;
+	font-size: 16px;
+}
+th.titulo
+{
+	text-align: left;
+	font-size: 20px;
 }
 #btn-confirmar
 {

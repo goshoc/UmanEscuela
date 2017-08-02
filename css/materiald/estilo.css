@@ -1,15 +1,20 @@
 td.fila_menu
 {
 	text-align:left;
-	font-size: 16px;
+	font-size: 13px;
+	white-space: normal;
 }
 th.titulo
 {
 	text-align: left;
-	font-size: 20px;
+	font-size: 15px;
 }
 #btn-confirmar
 {
 	width:50%;
 	align-content: center;
+}
+div.comentario
+{
+	width:100%;
 }

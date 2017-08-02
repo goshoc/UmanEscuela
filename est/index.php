@@ -118,7 +118,7 @@ if($_SESSION['id_tipo_usuario']==2)
                       </tr>");
               echo "<tr>";
                 echo "<td class=\"fila_menu\">";
-                  echo(" <div class=\"mdl-textfield mdl-js-textfield\">
+                  echo(" <div class=\"comentario mdl-textfield mdl-js-textfield\">
                       <input type=\"text\" name=\"comentario".$diasHabilitados[$i][0]."\" class=\"mdl-textfield__input\"  id=\"comentario".$diasHabilitados[$i][0]."\" value=\"\">
                       <label class=\"mdl-textfield__label\" for=\"comentario".$diasHabilitados[$i][0]."\">Comentario...</label>
                       </div>

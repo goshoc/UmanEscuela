@@ -33,7 +33,6 @@
           <h3>Bienvenido a la plataforma Uman
           </h3>
         </div>
-        
         <div class=" mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--8dp">
           <a href="index.html" class="mdl-layout__tab">inicio</a>
           <a href="platillos.html" class="mdl-layout__tab">platillos</a>
@@ -45,14 +44,26 @@
    <main class="mdl-layout__content">
 
       <div class="container">
-      
-      <h5>Info</h5>
-      <p>Cuando ingreses con tu usuario y contraseña vas a encontrarte con el menú que elegimos para esta semana.</p>
-      <p>Solo podrás elegir una opción por día. En el caso de que quieras otro menú extra podrás informarlo en la parte donde dice ‘’comentario’’.</p>
-      <p>La hora máxima para pedir es antes de las 10.30am del mismo día. En el caso de que quieras dar de baja el menú solo podrás hacerlo antes de esa hora al celular que te daremos a la hora de enviarte la contraseña.</p>
-      <p>Todas las opciones del menú cuestan $85 pesos.</p>
-      <p>Esta plataforma, por el momento, solo esta disponible los días que haya clases en la escuela.</p>
-      <br><p>Esperamos que disfrutes nuestras opciones!</p>
+
+      <form class="form-signin" action="login.php" method="post">
+        <div class="col-lg-6" style="margin-top: 59px;">
+          <h2 class="form-signin-heading">Ingrese sus datos</h2>
+          <label for="inputUser" class="sr-only">Usuario</label>
+          <input type="text" name="txtUsuario" class="form-control" placeholder="Usuario" required autofocus maxlength="50">
+          <label for="inputPassword" class="sr-only">Contraseña</label>
+          <input type="password" name="txtPassword" class="form-control" placeholder="Contraseña" required>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="remember-me"> Recordarme
+            </label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+        </div>
+        <div class="col-lg-6">
+          <img src="/images/LogoUman.png" class="img-responsive" alt="Uman">
+        </div>
+      </form>
+
       </div> <!-- /container -->
     </body>
   </html>

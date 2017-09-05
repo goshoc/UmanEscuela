@@ -68,7 +68,7 @@ if($_SESSION['id_tipo_usuario']==2)
       $count++;
     }
  /* Inicio De Tablas*/
-   echo("<form action=\"../est/enviar_datos.php\" method=\"POST\">");
+   echo("<form id=\"formAlumnoMenues\" action=\"../est/enviar_datos.php\" method=\"POST\">");
     for ($i=0; $i < count($diasHabilitados); $i++) {
       echo("<section class=\"section--center  mdl-shadow--4dp\">");
        echo("<table class=\"mdl-data-table mdl-js-data-table\" style=\"width:100%\" name=".$diasHabilitados[$i][0].">");
@@ -140,12 +140,55 @@ if($_SESSION['id_tipo_usuario']==2)
 }
 echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class=\"form-control\" value=\"".count($diasHabilitados)."\">";
 ?>
+
+<?php 
+
+?>
 <section class="section--center mdl-shadow--2dp">
 <div style="width:100%">
-<button type="submit" class="btn-confirmar mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="width:100%">
-  Confirmar
-</button>
+<button type="button" class="mdl-button show-modal btn-confirmar mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="width:100%">Confirmar</button>
+<dialog class="mdl-dialog">
+    <div class="mdl-dialog__content">
+      <p>
+      Pedido:
+      <br>
+        <?php 
+        for ($i=0; $i < count($diasHabilitados); $i++) {
+          echo($diasHabilitados[$i][1]." ".$diasHabilitados[$i][0]." : ");
+          echo("<br>");
+        }
+        ?>
+      </p>
+    </div>
+    <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+      <button type="submit" class="mdl-button aceptar">Aceptar</button>
+      <button type="button" class="mdl-button close">Cancelar</button>
+    </div>
+  </dialog>
+  <script>
+    var dialog = document.querySelector('dialog');
+    var showModalButton = document.querySelector('.show-modal');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showModalButton.addEventListener('click', function() {
+      dialog.showModal();
+      for(i==0;i<100;i++)
+      {
+
+      }
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close()  ;
+      //cancelo el modal
+    });
+    dialog.querySelector('.aceptar').addEventListener('click', function() {
+      dialog.close();
+      //acepto el modal      
+    });
+  </script>
 </div>
+
 </section>
 
 <?php
@@ -157,7 +200,6 @@ echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class
 	</div>
 </div>
 </div>
-
   </main>
   </div>
   </body>

@@ -161,7 +161,7 @@ echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class
   </main>
   </div>
   </body>
-  <footer class="navbar-fixed-bottom">
+  <footer class="fixed-bottom">
    <?php include_once("Footer.html") ?>
   </footer>
 

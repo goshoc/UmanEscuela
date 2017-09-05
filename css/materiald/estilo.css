@@ -3,6 +3,7 @@ td.fila_menu
 	text-align:left;
 	font-size: 13px;
 	white-space: normal;
+	overflow-y:-webkit-paged-x;
 }
 th.titulo
 {

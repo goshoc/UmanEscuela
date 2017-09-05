@@ -17,13 +17,11 @@
     <!-- Un tipo de Fuente desde Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-   <!--Cuando este lista, cambiar favicon y descomentarlo
-   <link rel="icon" href="../../favicon.ico"> -->
+    <!--Cuando este lista, cambiar favicon y descomentarlo
+    <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
     <link href="../css/indexEst.css" rel="stylesheet">
   </head>
-
-
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
@@ -35,35 +33,49 @@
         </div>
         <div class=" mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--8dp">
           <a href="index.html" class="mdl-layout__tab">inicio</a>
-          <a href="platillos.html" class="mdl-layout__tab">platillos</a>
+          <a href="platillos.html" class="mdl-layout__tab">Nuestros Platos</a>
           <a href="LogIn.html" class="mdl-layout__tab">iniciar sesión</a>
-
         </div>
       </header>
-   
-   <main class="mdl-layout__content">
+      
+      <main class="mdl-layout__content">
+        <div class="container">
+          <form class="form-signin" action="login.php" method="post">
+            <div class="col-lg-6" style="margin-top: 25px; margin-left: 25px;">
+              <table>
+                <tr>
+                  <td>
+<label for="inputUser" class="sr-only">Usuario</label>
+              <input type="text" name="txtUsuario" class="form-control" placeholder="Usuario" required autofocus maxlength="50">
+                  </td>
+                  <td>
+              <label for="inputPassword" class="sr-only">Contraseña</label>
+              <input type="password" name="txtPassword" class="form-control" placeholder="Contraseña" required>      
+                  </td>
+                </tr>
+<tr>
+  <td style="text-align: left;">
+                <button type="submit" class="btn-confirmar mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" >
+                Ingresar
+              </button>    
+                  </td>
 
-      <div class="container">
+                <td style="text-align: right;">
 
-      <form class="form-signin" action="login.php" method="post">
-        <div class="col-lg-6" style="margin-top: 59px;">
-          <h2 class="form-signin-heading">Ingrese sus datos</h2>
-          <label for="inputUser" class="sr-only">Usuario</label>
-          <input type="text" name="txtUsuario" class="form-control" placeholder="Usuario" required autofocus maxlength="50">
-          <label for="inputPassword" class="sr-only">Contraseña</label>
-          <input type="password" name="txtPassword" class="form-control" placeholder="Contraseña" required>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="remember-me"> Recordarme
-            </label>
-          </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
-        </div>
-        <div class="col-lg-6">
-          <img src="/images/LogoUman.png" class="img-responsive" alt="Uman">
-        </div>
-      </form>
+                  </td>
+                
+                </tr>
+              </table>
 
-      </div> <!-- /container -->
-    </body>
-  </html>
+              
+              
+              
+              
+              <div style="margin-top: 15px;">
+
+                </div>
+            </div>
+          </form>
+          </div> <!-- /container -->
+        </body>
+      </html>

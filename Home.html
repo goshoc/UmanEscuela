@@ -1,3 +1,7 @@
+<?php
+include_once("../conexion.php");
+session_start();
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -20,9 +24,8 @@
     <!--Cuando este lista, cambiar favicon y descomentarlo
     <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
-    <link href="../css/indexEst.css" rel="stylesheet">
-    <link rel="stylesheet" href="http:/localhost/css/bootstrap.min.css">
   </head>
+  
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
@@ -32,32 +35,35 @@
           <h3>Bienvenido a la plataforma Uman
           </h3>
         </div>
-        
         <div class=" mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--8dp">
           <a href="index.html" class="mdl-layout__tab">inicio</a>
           <a href="platillos.html" class="mdl-layout__tab">Nuestros Platos</a>
           <a href="LogIn.html" class="mdl-layout__tab">iniciar sesión</a>
         </div>
+        
       </header>
-      
       <main class="mdl-layout__content">
-        <div style="margin-left: 25px;" class="container">
-          
-          <h5>Conocé algunos de nuestros platos</h5>
-          <div class="col-lg-6" style="display: flex;" >
-            <img style="max-width: 300px; max-height: 250px;" src="/images/tallarines_120.jpg" class="img-responsive" alt="tallarines"><br>
-            <p></p>
-            <img  style="max-width: 300px; max-height: 250px;"  src="/images/hamburguesas.jpg" class="img-responsive" alt="hamburguesas"><br>
-            <p></p>
-            <img style="max-width: 300px; max-height: 350px;"   src="/images/sandwiches.png" class="img-responsive" alt="sandwiches"><br>
-            <p></p>
-            <img  style="max-width: 300px; max-height: 350;" src="/images/aros.jpg" class="img-responsive" alt="aros"><br>
-            <p></p>
-            <img style="max-width: 300px; max-height: 350px;"  src="/images/bandeja.jpg" class="img-responsive" alt="bandeja"><br>
-            <p></p>
-            <img style="max-width: 300px; max-height: 350px;"  src="/images/knishes.png" class="img-responsive" alt="knishes"><br>
+        <div class="mdl-layout__tab-panel is-active">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col ">
+              <section class="section--center mdl-shadow--2dp">
+                <div style="width:80%; margin-left: 25px; margin-top: 25px;">
+                  <p>Para elegir tus menús diarios de esta semana, <a href="LogIn.html">inicia sesión ahora!</a>!</p>
+                  <p>Solo podrás elegir una opción por día. En el caso de que quieras otro menú extra podrás informarlo en la parte donde dice ‘’comentario’’.</p>
+                  <p>La hora máxima para pedir es antes de las 10.30am del mismo día. En el caso de que quieras dar de baja el menú solo podrás hacerlo antes de esa hora al celular que te daremos a la hora de enviarte la contraseña.</p>
+                  <p>Todas las opciones del menú cuestan $85 pesos.</p>
+                  <p>Esta plataforma, por el momento, solo esta disponible los días que haya clases en la escuela.</p>
+                  <br><p>Esperamos que disfrutes nuestras opciones!</p>
+                </div>
+              </section>
+            </div>
           </div>
-          
-          </div> <!-- /container -->
-        </body>
-      </html>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--8dp">
+        </div>
+      </main>
+    </div>
+  </body>
+  <footer class="fixed-bottom">
+  </footer>
+</html>

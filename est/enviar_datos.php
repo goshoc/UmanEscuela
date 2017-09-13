@@ -1,53 +1,59 @@
+<?php
+include_once("../conexion.php");
+session_start();
+?>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<meta name="description" content="">
-		<meta name="author" content="">
-	 <!--
-		Cuando este lista, cambiar favicon y descomentarlo
-	 <link rel="icon" href="../../favicon.ico"> -->
-		<title>Uman</title>
-		<!-- Bootstrap core CSS -->
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<!-- Custom styles for this template -->
-		<link href="../css/signin.css" rel="stylesheet">
-		<link href="../css/indexEst.css" rel="stylesheet">
-		<!-- Custom style for navbar -->
-		<link href="../css/navbar-fixed-top.css" rel="stylesheet">
-		<!-- FONTS-->
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- El Meta Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- El CSS de Material Design con un color establecido , yo usaré el color Rosado Índigo -->
+    <link rel="stylesheet" href="../css/materiald/styles.css" />
+    <link rel="stylesheet" href="../css/materiald/material.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-pink.min.css" />
+    <link rel="stylesheet" href="../css/materiald/estilo.css" />
+    <!-- El archivo JS de Material Design -->
+    <script src="../css/materiald/material.min.js"></script>
+    <!-- Un tipo de Fuente desde Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+   <!--Cuando este lista, cambiar favicon y descomentarlo
+   <link rel="icon" href="../../favicon.ico"> -->
+    <title>Uman</title>
+    <link href="../css/indexEst.css" rel="stylesheet">
+  </head>
 
-	</head>
-	<body>
-		<!-- Fixed navbar -->
-	    <nav class="navbar navbar-default navbar-fixed-top">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="index.php">Uman Menú</a>
-	        </div>
-	        <div id="navbar" class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="index.php">Home</a></li>
-	          </ul>
-	          <ul class="nav navbar-nav navbar-right">
-	          <li><a href="LogOut.php">Log out</a></li>
-	          </ul>
-	        </div><!--/.nav-collapse -->
-	      </div>
-	    </nav>
-			<div class='container'>
+ <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h3>Listo, 
+            <?php echo($_SESSION['nombre']) ?>
+          </h3>
+        </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <p>Ya tomamos tu pedido.</p>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--8dp">
+          <a href="LogOut.php" class="mdl-layout__tab">Cerrar sesión</a>
+        </div>
+      </header>
+
+
+	 <main class="mdl-layout__content">
+      <div class="mdl-layout__tab-panel is-active">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--12-col ">
+
+			<section class="section--center  mdl-shadow--4dp">
+			<div class="mdl-card__supporting-text">
 		<?php
-		session_start();
-		include_once "../conexion.php";
 		if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==2)
 		{
 			$numero = count($_POST);
@@ -59,6 +65,15 @@
 			{
 
 				$fechaTabla[$j] = $_POST["fechaTabla".$j];
+			}
+			//elimino el "nada" de la consulta
+			for($z=0;$z<count($valores);$z++)
+			{
+				if($valores[$z]="9999")
+				{
+					//borrar todos los elementos de esta posicion asi no se hace el insert
+					
+				}
 			}
 			for($l=0;$l<count($fechaTabla);$l++)
 			{
@@ -77,8 +92,10 @@
 								echo("</br></br>");
 						}
 						else
-						{
-								echo ("Registrado el menú del día: ".$fechaTabla[$l].".</br>" );
+						{	
+
+    
+								echo ("Registrado el menú para el día: ".$fechaTabla[$l].".</br>" );
 							}
 					}
 				}
@@ -91,7 +108,14 @@
 		}
 		?>
 		</div>
-	</body>
+		</section>
+		</div>
+		</div>
+		</div>
+	  </main>
+	  </div>
+ </body>
+
   <footer class="navbar-fixed-bottom">
    <?php include_once("Footer.html") ?>
   </footer>

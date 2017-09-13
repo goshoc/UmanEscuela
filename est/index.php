@@ -18,6 +18,15 @@ session_start();
     <link rel="stylesheet" href="../css/materiald/estilo.css" />
     <!-- El archivo JS de Material Design -->
     <script src="../css/materiald/material.min.js"></script>
+    <script type="text/javascript">
+      function displaySelectedRadio(elemento) {
+        //console.log(elemento.value);
+        var str2 = elemento.parentNode.getElementsByClassName("mdl-radio__label");
+        //console.log(str2["0"].innerHTML);
+        var str = "P"+elemento.name;
+    document.getElementById(str).innerHTML = str2["0"].innerHTML;
+}
+    </script>
     <!-- Un tipo de Fuente desde Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -103,7 +112,7 @@ if($_SESSION['id_tipo_usuario']==2)
               echo "<tr>";
                 echo "<td class=\"fila_menu\">";
                   echo("<label class=\"mdl-radio mdl-js-radio mdl-js-ripple-effect\" for=".$diasHabilitados[$i][0].$menues[$y][0].">");
-                    echo ("<input type=\"radio\" id=".$diasHabilitados[$i][0].$menues[$y][0]." class=\"mdl-radio__button\" name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\">");
+                    echo ("<input type=\"radio\" id=".$diasHabilitados[$i][0].$menues[$y][0]." class=\"mdl-radio__button\" name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\" onclick=\"displaySelectedRadio(this)\">");
               //echo ("<input type="."radio"." name=".$diasHabilitados[$i][0]." value=\"".$menues[$y][0]."\"/> ".$menues[$y][1]."</br>");
                     echo("<span class=\"mdl-radio__label\">".$menues[$y][1]."</span>");
                     echo("    </label>
@@ -113,7 +122,7 @@ if($_SESSION['id_tipo_usuario']==2)
               echo "<tr>";
                 echo "<td class=\"fila_menu\">";
                   echo("<label class=\"mdl-radio mdl-js-radio mdl-js-ripple-effect\" for=".$diasHabilitados[$i][0]."nada".">");
-                    echo ("<input type=\"radio\" id=".$diasHabilitados[$i][0]."nada"." class=\"mdl-radio__button\" name=".$diasHabilitados[$i][0]." value=\"9999\">");
+                    echo ("<input type=\"radio\" id=".$diasHabilitados[$i][0]."nada"." class=\"mdl-radio__button\" name=".$diasHabilitados[$i][0]." value=\"9999\" onclick=\"displaySelectedRadio(this)\">");
                     echo("<span class=\"mdl-radio__label\">Nada</span>");
                     echo("    </label>
                         </td>
@@ -149,16 +158,17 @@ echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class
 <button type="button" class="mdl-button show-modal btn-confirmar mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" style="width:100%">Confirmar</button>
 <dialog class="mdl-dialog">
     <div class="mdl-dialog__content">
-      <p>
-      Pedido:
+      <h5>
+      Pedido
+      </h5>
       <br>
         <?php 
         for ($i=0; $i < count($diasHabilitados); $i++) {
           echo($diasHabilitados[$i][1]." ".$diasHabilitados[$i][0]." : ");
-          echo("<br>");
+          echo("<p id=\"P".$diasHabilitados[$i][0]."\"></p>");
         }
         ?>
-      </p>
+
     </div>
     <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
       <button type="submit" class="mdl-button aceptar">Aceptar</button>
@@ -173,10 +183,6 @@ echo "<input type=\"hidden\" name=\"cantTablas\"  id =\"modificarUsuario\" class
     }
     showModalButton.addEventListener('click', function() {
       dialog.showModal();
-      for(i==0;i<100;i++)
-      {
-
-      }
     });
     dialog.querySelector('.close').addEventListener('click', function() {
       dialog.close()  ;

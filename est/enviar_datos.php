@@ -66,22 +66,19 @@ session_start();
 
 				$fechaTabla[$j] = $_POST["fechaTabla".$j];
 			}
-			//elimino el "nada" de la consulta
-			for($z=0;$z<count($valores);$z++)
-			{
-				if($valores[$z]="9999")
-				{
-					//borrar todos los elementos de esta posicion asi no se hace el insert
-					
-				}
-			}
 			for($l=0;$l<count($fechaTabla);$l++)
 			{
 				for($k=0;$k<count($tags);$k++)
 				{
 					if($tags[$k]==$fechaTabla[$l])
 					{
-						//echo"(\"INSERT INTO `pedido`	(`fecha`, `id_usuario`, `id_menu`, `comentario`) VALUES (\"".$fechaTabla[$l]."\",\"".$_SESSION['id']."\",".$valores[$k].",\"".$valores[$k+1]."\"); \");";
+						if($valores[$k]==9999)
+						{
+							
+						}
+						else
+						{
+							//echo"(\"INSERT INTO `pedido`	(`fecha`, `id_usuario`, `id_menu`, `comentario`) VALUES (\"".$fechaTabla[$l]."\",\"".$_SESSION['id']."\",".$valores[$k].",\"".$valores[$k+1]."\"); \");";
 						$sql= ("INSERT INTO `pedido`	(`fecha`, `id_usuario`, `id_menu`, `comentario`) VALUES (\"".$fechaTabla[$l]."\",\"".$_SESSION['id']."\",".$valores[$k].",\"".$valores[$k+1]."\"); ");
 
 						$result = $con->query($sql);
@@ -97,6 +94,8 @@ session_start();
     
 								echo ("Registrado el menú para el día: ".$fechaTabla[$l].".</br>" );
 							}
+						}
+						
 					}
 				}
 			}

@@ -8,19 +8,19 @@
     <!-- El Meta Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- El CSS de Material Design con un color establecido , yo usaré el color Rosado Índigo -->
-    <link rel="stylesheet" href="../css/materiald/styles.css" />
-    <link rel="stylesheet" href="../css/materiald/material.min.css">
+    <link rel="stylesheet" href="css/materiald/styles.css" />
+    <link rel="stylesheet" href="css/materiald/material.min.css">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.brown-pink.min.css" />
-    <link rel="stylesheet" href="../css/materiald/estilo.css" />
+    <link rel="stylesheet" href="css/materiald/estilo.css" />
     <!-- El archivo JS de Material Design -->
-    <script src="../css/materiald/material.min.js"></script>
+    <script src="css/materiald/material.min.js"></script>
     <!-- Un tipo de Fuente desde Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--Cuando este lista, cambiar favicon y descomentarlo
     <link rel="icon" href="../../favicon.ico"> -->
     <title>Uman</title>
-    <link href="../css/indexEst.css" rel="stylesheet">
+    <link href="css/indexEst.css" rel="stylesheet">
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -33,45 +33,48 @@
         </div>
         <div class=" mdl-js-ripple-effect mdl-color--primary-dark mdl-shadow--8dp">
           <a href="index.html" class="mdl-layout__tab">inicio</a>
-          <a href="platillos.html" class="mdl-layout__tab">Nuestros Platos</a>
+          <a href="platos.html" class="mdl-layout__tab">Nuestros Platos</a>
           <a href="LogIn.html" class="mdl-layout__tab">iniciar sesión</a>
         </div>
       </header>
       
       <main class="mdl-layout__content">
-        <div class="container">
-          <form class="form-signin" action="login.php" method="post">
-            <div class="col-lg-6" style="margin-top: 25px; margin-left: 25px;">
-              <table>
-                <tr>
-                  <td>
-                    <label for="inputUser" class="sr-only">Usuario</label>
-                    <input type="text" name="txtUsuario" class="form-control" placeholder="Usuario" required autofocus maxlength="50">
-                  </td>
-                  <td>
-                    <label for="inputPassword" class="sr-only">Contraseña</label>
-                    <input type="password" name="txtPassword" class="form-control" placeholder="Contraseña" required>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="text-align: left;">
-                    <button type="submit" class="btn-confirmar mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" >
-                    Ingresar
-                    </button>
-                  </td>
-                  <td style="text-align: right;">
-                  </td>
-                  
-                </tr>
-              </table>
-              
-              
-              
-              
-              <div style="margin-top: 15px;">
-              </div>
+        <div class="mdl-layout__tab-panel is-active">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col ">
+              <section class="section--center mdl-shadow--2dp">
+                <form class="form-signin" action="login.php" method="post">
+                    <div>
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="sample1" name="txtUsuario">
+                        <label class="mdl-textfield__label" for="sample1">Usuario</label>
+                      </div>
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="sample1" name="txtPassword">
+                        <label class="mdl-textfield__label" for="sample1">Contraseña</label>
+                      </div>
+                    </div>
+                    <div>
+                      <button type="submit" class="btn-confirmar mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" >
+                          Ingresar
+                          </button>
+                    </div>
+                </form>
+           </section>
+               <section class="section--center mdl-shadow--2dp">
+                <div>
+                  <p>Cuando ingreses con tu usuario y contraseña vas a encontrarte con el menú que elegimos para cada semana.</p>
+                  <p>Solo podrás elegir una opción por día, por cada alumno. En el caso de que quieras realizar algún tipo de aclaración referente al menú solicitado, podrás informarlo en la parte donde dice “comentario”.</p>
+                  <p>La hora máxima para pedir es antes de las 9:00 am del mismo día. En el caso de que quieras dar de baja el menú solo podrás hacerlo antes de esa hora por mail a umancomedor@gmail.com</p>
+                  <p>Todas las opciones del menú pedidas de forma anticipada (hasta el último viernes hábil de cada semana) cuestan $70.</p>
+                  <p>Las opciones de menú pedidas de forma no anticipada cuestan $85.</p>
+                  <br>
+                  <p>Esperamos que puedas disfrutar de nuestras opciones!!!</p>
+                  <p>UmanBialik</p>
+                </div>
+               </section>
             </div>
-          </form>
-          </div> <!-- /container -->
+          </div>
+        </div>
         </body>
       </html>

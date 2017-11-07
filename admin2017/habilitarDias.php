@@ -14,7 +14,7 @@ if(isset($_SESSION['id_tipo_usuario']) && $_SESSION['id_tipo_usuario']==1)
             $diasCompletos[$count] = array($row['fecha'],$row['nombre_dia'],$row['habilitado']);
             $count++;
         } 
-        echo("<form action='actualizarDias.php'>");
+        echo("<form action='ActualizarDias.php'>");
         //llenado de tabla. Falta actualizacion de datos
         echo("<table class=\"table table-striped table table-bordered\" name=\""."diasCompletos"."\">");
         echo ("<h2>"."Días"."</h2>");

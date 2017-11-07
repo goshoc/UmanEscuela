@@ -1,10 +1,7 @@
 <?php
-session_start(); 
+session_start();
+session_destroy();
 
-$_SESSION = array(); 
-
-session_destroy(); 
-echo "Ha salido del sistema.";
-header('Location: ../index.html');
+header("location:../index.html");
+exit();
 ?>
-
